@@ -11,21 +11,32 @@
 </head>
 
 <body>
-   <header class="navbar">
-      <nav class="container">
-         <div class="navbar-brand">
-            <a class="navbar-item" href="/">Home</a>
-            <a class="navbar-item" href="/profile">Profile</a>
-         </div>
-         <div class="navbar-end">
-            {{#if loggedIn}}
-            <a class="navbar-item" href="#">Logout</a>
-            {{else}}
-            <a class="navbar-item" href="/login">Login</a>
-            <a class="navbar-item" href="/signUp">Sign Up</a>
-            {{/if}}
-         </div>
-      </nav>
+   <header>
+      <header>
+         <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+               <a class="navbar-item" href="/">
+      <img src="/images/mini.png" width="25" height="25">
+    </a>
+               <a class="navbar-item" href="/">Home</a>
+               <a class="navbar-item" href="/profile">Profile</a>
+            </div>
+
+               <div class="navbar-end">
+                  {{#if loggedIn}}
+                  <a class="navbar-item" href="#">Logout</a>
+                  {{else}}
+                  <div class="navbar-item">
+                     <div class="buttons">
+                        <a class="button is-primary" href="/login">Login</a>
+                        <a class="button is-light" href="/signUp">Sign Up</a>
+                     </div>
+                  </div>
+                  {{/if}}
+               </div>
+         </nav>
+      </header>
+
    </header>
 
    <main>
