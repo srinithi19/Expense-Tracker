@@ -1,85 +1,29 @@
 :root {
-   --primary-color: #3273dc;
-   --secondary-color: #fff;
+   --primary: #fff;
+   --secondary: #3273dc;
    --font-size: 1.5rem;
- }
- 
- .navbar {
-    height: 20vh;
-    display: flex;
-    align-items: center;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 1rem;
-    border-radius: 1rem 1rem 0 0;
-    font-size: var(--font-size);
-    font-weight: bold;
-    flex-wrap: wrap;
- }
- 
- .navbar-brand a.navbar-item,
- .navbar-end a.navbar-item {
-    color: var(--secondary-color);
-    font-size: var(--font-size);
- }
- 
- .navbar-brand a.navbar-item {
-    margin-right: auto;
- }
- 
- .navbar-end a.navbar-item {
-    margin-left: 1rem;
- }
- 
- @media (max-width: 767px) {
-    .navbar-brand,
-    .navbar-end {
-       display: flex;
-       flex-direction: column;
-    }
- 
-    .navbar-brand a.navbar-item,
-    .navbar-end a.navbar-item {
-       margin: 0.5rem 0;
-    }
- }
-
- .home-container {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 2rem;
 }
 
-.left-column {
-   width: 30%;
-   text-align: center;
-}
-
-.right-column {
-   width: 65%;
-}
 
 .logo {
-background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dplaceholder&psig=AOvVaw21OWW2Kjj7illJfSvQhXar&ust=1676143561598000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCLCimr3Xi_0CFQAAAAAdAAAAABAE");
-background-size: contain;
-background-repeat: no-repeat;
-height: 100px;
-width: 100px;
-margin: 0 auto;
+   background-image: url(../images/logo.png);
+   background-size: contain;
+   background-repeat: no-repeat;
+   height: 400px;
+   width: 400px;
+   margin: 0 auto;
 }
 
-.title h1 {
-   font-size: 3rem;
-   font-weight: bold;
+p {
+   font-size: 18px;
 }
 
+.section {
+   border-radius: 10px;
+   background-color: var(--secondary);
+}
 
- @media only screen and (max-width: 768px) {
-   .left-column,
-   .right-column {
-      width: 100%;
-      display: block;
-      text-align: center;
-   }
+.title {
+   border-radius: 10px;
+   background-color: var(--tertiary);
 }
