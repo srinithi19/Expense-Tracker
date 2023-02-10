@@ -9,14 +9,13 @@ const transactionSeeds = require('./transactionSeeds.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const users = await Users.bulkCreate(UsersSeedData, {
+  const users = await User.bulkCreate(userSeeds, {
     individualHooks: true,
     returning: true,
   })
 
-  const transactions = await Posts.bulkCreate(transactionSeeds);
-  const budget = await Posts.bulkCreate(budgetSeeds)
-
+  const transactions = await Transaction.bulkCreate(transactionSeeds);
+  const budget = await Budget.bulkCreate(budgetSeeds)
 
   process.exit(0);
 };
