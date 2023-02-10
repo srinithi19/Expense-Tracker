@@ -20,19 +20,28 @@ Transaction.init(
     category: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        isAlpha: true,
+      },
     },
     subcategory: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        isAlpha: true,
+      },
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
     amount: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        isInt: true,
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
