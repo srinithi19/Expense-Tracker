@@ -26,6 +26,7 @@ router.get('/signup', (req, res) => {
 });
 
 //HTML page to render users transactions
+//TODO - add withAuth
 router.get('/profile', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
