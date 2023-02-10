@@ -14,7 +14,7 @@ Budget.init(
       autoIncrement: true,
     }, 
       amount: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 0
     },
