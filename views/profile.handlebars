@@ -35,23 +35,42 @@
 </div>
 
 <section id="transactions-partial">
-   <table class="table is-fullwidth">
-      <thead>
-         <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Amount</th>
-         </tr>
-      </thead>
-      <tbody>
-         {{#each transactions}}
-         <tr>
-            <td>{{date}}</td>
-            <td>{{description}}</td>
-         </tr>
-         {{/each}}
-      </tbody>
-   </table>
+<div class="is-bordered box">
+<table class="table is-hoverable is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Description</abbr></th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Description</abbr></th>
+      <th>Amount</th>
+    </tr>
+  </tfoot>
+  <tbody>
+          {{#each transactions as |trans|}}
+    <tr>
+      <td>{{trans.date}}</td>
+      <td><strong>{{trans.category}}</strong>
+      </td>
+      <td>{{trans.subcategory}}</td>
+      <td>{{trans.description}}</td>
+      <td>{{trans.amount}}</td>
+    </tr
+      {{/each}}
+   </tr
+  </tbody>
+</table>
+</div>
+
 </section>
 
 <div class="container" style="display:none;">
