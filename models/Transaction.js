@@ -34,10 +34,6 @@ Transaction.init(
       allowNull: false,
       defaultValue: 0
     },
-    subcategory: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
