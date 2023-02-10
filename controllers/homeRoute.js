@@ -25,6 +25,14 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+//HTML page to render users transactions
+router.get('/profile', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('profile');
+});
 
 
 module.exports = router;

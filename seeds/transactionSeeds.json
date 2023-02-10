@@ -1,0 +1,75 @@
+[
+  {
+    "date":"01/31/2023",
+    "category":"expense",
+    "subcategory":"gas",
+    "description":"split gas w/ Charles",
+    "amount":"20.00",
+    "user_id":"1"
+  },
+  {
+    "date":"02/01/2023",
+    "category":"expense",
+    "subcategory":"food",
+    "description":"resturant for bday party",
+    "amount":"280.00",
+    "user_id":"3"
+  },
+  {
+    "date":"02/01/2023",
+    "category":"expense",
+    "subcategory":"entertainment",
+    "description":"movies for bday party",
+    "amount":"28.97",
+    "user_id":"3"
+  },
+  {
+    "date":"01/20/2023",
+    "category":"income",
+    "subcategory":"work",
+    "description":"DD",
+    "amount":"1500.00",
+    "user_id":"1"
+  },
+  {
+    "date":"02/01/2023",
+    "category":"income",
+    "subcategory":"trust fund",
+    "description":"DD",
+    "amount":"10000.00",
+    "user_id":"3"
+  },
+  {
+    "date":"02/01/2023",
+    "category":"income",
+    "subcategory":"loan",
+    "description":"loan from brother",
+    "amount":"2000.00",
+    "user_id":"2"
+  },
+  {
+    "date":"01/31/2023",
+    "category":"income",
+    "subcategory":"Door Dash",
+    "description":"payment from last weeks drops",
+    "amount":"200.00",
+    "user_id":"2"
+  },
+  {
+    "date":"01/31/2023",
+    "category":"income",
+    "subcategory":"Door Dash",
+    "description":"payment from last weeks drops",
+    "amount":"200.00",
+    "user_id":"2"
+  },
+  {
+    "date":"01/31/2023",
+    "category":"expense",
+    "subcategory":"junk food",
+    "description":"late night 711 trip",
+    "amount":"250.00",
+    "user_id":"5"
+  }
+]
+
