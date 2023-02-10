@@ -13,10 +13,13 @@ Budget.init(
       primaryKey: true,
       autoIncrement: true,
     }, 
-      amount: {
+    amount: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0
+      defaultValue: 0,
+      validate: {
+        isInt: true,
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
