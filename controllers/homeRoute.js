@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
     console.log("-------------------")
 
     res.render('homepage', {
-        posts,
         loggedIn: req.session.loggedIn,
         user: req.session.user_id,
         name: req.session.name,
