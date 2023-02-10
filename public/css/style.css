@@ -18,12 +18,29 @@ p {
    font-size: 18px;
 }
 
-.section {
+/* .section {
    border-radius: 10px;
    background-color: var(--secondary);
-}
+} */
 
 .title {
    border-radius: 10px;
    background-color: var(--tertiary);
 }
+
+/* TEMPORARY */
+
+
+aside.menu {
+   width: 33.33%;
+   float: left;
+ }
+
+ main.section {
+   width: 66.66%;
+   float: right;
+ }
+
+ .columns {
+   width: 100%;
+ }
