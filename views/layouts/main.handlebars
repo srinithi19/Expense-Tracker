@@ -17,11 +17,11 @@
             <a href="#">Profile</a>
          </div>
          <div class="right-nav">
-            {{#if isLoggedIn}}
+            {{#if loggedIn}}
             <a href="#">Logout</a>
             {{else}}
-            <a href="#">Login</a>
-            <a href="#">Sign Up</a>
+            <a href="/login">Login</a>
+            <a href="/signUp">Sign Up</a>
             {{/if}}
          </div>
       </nav>
@@ -31,6 +31,9 @@
       {{{ body }}}
    </main>
 
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
