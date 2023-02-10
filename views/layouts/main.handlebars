@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Expense Tracker</title>
+     <link rel="stylesheet" href="">
+</head>
+
+<body>
+   <header>
+      <nav>
+         <div class="left-nav">
+            <a href="#">Home</a>
+            <a href="#">Profile</a>
+         </div>
+         <div class="right-nav">
+            {{#if isLoggedIn}}
+            <a href="#">Logout</a>
+            {{else}}
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+            {{/if}}
+         </div>
+      </nav>
+   </header>
+
+   <main>
+      {{{ body }}}
+   </main>
+
+</body>
+
+</html>
