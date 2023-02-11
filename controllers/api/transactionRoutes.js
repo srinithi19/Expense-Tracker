@@ -24,5 +24,30 @@ router.post('/addTransaction', async (req, res) => {
     }
   });
 
+
+
+  router.get('/', withAuth, async (req, res) => {
+    console.log('hitting')
+    console.log(req.session.user_id)
+  try {
+    const transactionData = await Transaction.findAll({
+      where: { user_id: req.session.user_id },
+    });
+    const transactions = transactionData.map((trans) => trans.get({ plain: true }));
+    console.log(transactions)
+
+    res.render('profile', {
+      transactions,
+      date: req.body.date,
+      category: req.body.category,
+      subcategory: req.body.subCategory,
+      description: req.body.description,
+      amount: req.body.amount,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
 
