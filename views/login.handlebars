@@ -6,20 +6,20 @@
           <h3 class="title has-text-white has-text-centered">Login</h3>
           <hr class="login-hr">
           <p class="subtitle has-text-white has-text-centered">Please login to track your expense!</p>
-          <form action="" class="box">
+          <form action="" class="box login-form">
             <div class="field">
-              <label for="" class="label">Email</label>
+              <label for="#email-login" class="label">Email</label>
               <div class="control has-icons-left">
-                <input type="email-login" placeholder="e.g. bobsmith@gmail.com" class="input" required>
+                <input type="email-login" placeholder="e.g. bobsmith@gmail.com" class="input" id="email-login" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
               </div>
             </div>
             <div class="field">
-              <label for="" class="label">Password</label>
+              <label for="#password-login" class="label">Password</label>
               <div class="control has-icons-left">
-                <input type="password" placeholder="*******" class="input" required>
+                <input type="password-login" placeholder="*******" class="input" id="password-login" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-lock"></i>
                 </span>
@@ -27,7 +27,7 @@
             </div>
         
             <div class="field">
-              <button class="button is-success">
+              <button class="button is-success" id="loginBtn">
                 Login
               </button>
             </div>
@@ -37,3 +37,5 @@
     </div>
   </div>
 </section>
+
+<script src="/js/login.js"></script>
