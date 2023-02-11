@@ -1,5 +1,4 @@
 const router = require('express').Router();
-//const { User,Transaction,Budget } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -27,7 +26,10 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-// HTML page to render users transactions
+
+//HTML page to render users transactions
+//TODO - add withAuth
+
 router.get('/profile', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');

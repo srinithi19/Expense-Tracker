@@ -1,9 +1,10 @@
 <div id="template">
    <aside class="menu">
-      <p class="menu-label">Actions</p>
+    <br>
+      <p class="menu-label is-size-4">Actions</p>
       <ul class="menu-list">
-         <li><button id="add-transactions-button" class="button is-primary">Add Transactions</button></li>
-         <li><button id="set-budget-button" class="button is-primary">Set Budget</button></li>
+         <li><button id="add-transactions-button" class="button is-link">Add Transaction</button></li><br>
+         <li><button id="set-budget-button" class="button is-link">Set Budget</button></li>
       </ul>
    </aside>
 
@@ -22,7 +23,7 @@
 
       <div class="columns">
          <div class="column">
-            <canvas id="chart"></canvas>
+            <canvas id="chart" style="width:100%;max-width:600px"></canvas>
             {{! chart.js chart goes here }}
          </div>
       </div>
@@ -33,23 +34,90 @@
    </main>
 </div>
 
-<div id="transactions-partial">
-   <table class="table is-fullwidth">
-      <thead>
-         <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Amount</th>
-         </tr>
-      </thead>
-      <tbody>
-         {{#each transactions}}
-         <tr>
-            <td>{{date}}</td>
-            <td>{{description}}</td>
-         </tr>
-         {{/each}}
-      </tbody>
-   </table>
+
+<section id="transactions-partial">
+<div class="is-bordered box">
+<table class="table is-hoverable is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Description</abbr></th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Description</abbr></th>
+      <th>Amount</th>
+    </tr>
+  </tfoot>
+  <tbody>
+          {{#each transactions as |trans|}}
+    <tr>
+      <td>{{trans.date}}</td>
+      <td><strong>{{trans.category}}</strong>
+      </td>
+      <td>{{trans.subcategory}}</td>
+      <td>{{trans.description}}</td>
+      <td>{{trans.amount}}</td>
+    </tr
+      {{/each}}
+   </tr
+  </tbody>
+</table>
 </div>
+
+</section>
+
+<div class="container" style="display:none;" id="newTransForm">
+  <div class="columns is-justify-content-center">
+    <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
+      <br>
+      <h2 class="has-text-centered has-text-link is-size-5 is-capitalized">Post a new transaction</h2><br>
+      <form action="" class="box p-5">
+        <label class="is-block mb-4">
+          <span class="is-block mb-2 is-size-5">Date</span>
+          <input required type="date" class="input" id="transDate"/>
+        </label><br>
+
+        <label class="is-block mb-4">
+          <span class="is-block mb-2 is-size-5">Category</span>   
+         <input type="radio" name="category" value="income" checked>
+         Income
+        <input type="radio" name="category" value="expense">
+         Expense
+         </label><br>
+       
+         <label class="is-block mb-4">
+          <span class="is-block mb-2 is-size-5">Sub Category</span>
+          <input required type="text" class="input" id="transSubCat"/>
+        </label><br>
+       
+         <label class="is-block mb-4">
+          <span class="is-block mb-2 is-size-5">Description</span>
+          <input required type="text" class="input" id="transDesc"/>
+        </label><br>
+       
+         <label class="is-block mb-4">
+          <span class="is-block mb-2 is-size-5">Amount</span>
+          <input required type="text" class="input" id="transAmount"/>
+        </label>
+        <br>
+       
+        <div class="mb-4">
+          <button type="submit" class="button is-link px-4 " id="postTransaction">Add Transaction</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script src="./js/addTransaction.js"></script>
+<script src="./js/budgetChart.js"></script>
 
