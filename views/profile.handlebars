@@ -11,13 +11,13 @@
   <main class="section">
     <div class="columns">
       <div class="column">
-        <p class="has-text-weight-bold">Income: {{income}}</p>
+        <p class="has-text-weight-bold" id="income">Income: {{sumIncome}}</p>
       </div>
       <div class="column">
-        <p class="has-text-weight-bold">Expense: {{expense}}</p>
+        <p class="has-text-weight-bold" id="expense">Expense: {{sumExpense}}</p>
       </div>
       <div class="column">
-        <p class="has-text-weight-bold">Budget: {{budget}}</p>
+        <p class="has-text-weight-bold" id="budget">Budget: {{budget.amount}}</p>
       </div>
     </div>
 
@@ -36,38 +36,50 @@
 
 
 <section id="transactions-partial">
-  <div class="is-bordered box">
-    <table class="table is-hoverable is-striped is-fullwidth">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Category</th>
-          <th>Subcategory</th>
-          <th>Description</abbr></th>
-          <th>Amount</th>
-        </tr>
-      </thead>
-      <tfoot>
-        <tr>
-          <th>Date</th>
-          <th>Category</th>
-          <th>Subcategory</th>
-          <th>Description</abbr></th>
-          <th>Amount</th>
-        </tr>
-      </tfoot>
-      <tbody>
-        {{#each transactions as |trans|}}
-        <tr>
-          <td>{{trans.date}}</td>
-          <td><strong>{{trans.category}}</strong>
-          </td>
-          <td>{{trans.subcategory}}</td>
-          <td>{{trans.description}}</td>
-          <td>{{trans.amount}}</td>
-        </tr {{/each}} </tr </tbody>
-    </table>
-  </div>
+<div class="is-bordered box">
+<table class="table is-hoverable is-striped is-fullwidth">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Description</abbr></th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Subcategory</th>
+      <th>Description</abbr></th>
+      <th>Amount</th>
+    </tr>
+  </tfoot>
+ 
+  <tbody>
+     {{#if transactions}}
+          {{#each transactions as |trans|}}
+    <tr>
+      <td>{{format_date trans.date}}</td>
+      <td><strong>{{trans.category}}</strong>
+      </td>
+      <td>{{trans.subcategory}}</td>
+      <td>{{trans.description}}</td>
+      <td>{{trans.amount}}</td>
+    </tr>
+      {{/each}}
+      {{else}}
+      <tr>
+        <td>
+          No data Available
+        </td>
+      </tr>
+      {{/if}}
+  </tbody>
+  
+</table>
+</div>
 
 </section>
 
