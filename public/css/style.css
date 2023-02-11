@@ -48,3 +48,11 @@ aside.menu {
 .button:hover {
    cursor: pointer;
 }
+
+.button:hover::before {
+   cursor: pointer;
+}
+
+.button:hover::after {
+   cursor: pointer;
+}
