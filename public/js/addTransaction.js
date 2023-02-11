@@ -5,6 +5,8 @@ var postTransaction  = document.getElementById("postTransaction")
 var newBudgetEl = document.getElementById("newBudgetForm"); 
 
 const replaceForm = () => {
+  console.log("---------IN replace")
+
     transHistoryEl.style.display = "none";
     newTransFormEl.style.display = "inline";
     newBudgetEl.style.display = "none";
