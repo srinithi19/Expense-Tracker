@@ -11,7 +11,7 @@ router.post('/signUp', async (req, res) => {
       });
       const data = userData.get({ plain: true });
       req.session.save(() => {
-         req.session.user = data.id;
+         req.session.user_id = data.id;
          req.session.username = data.name;
          req.session.loggedIn = true;
 
@@ -69,7 +69,6 @@ router.post('/logout', (req, res) => {
       req.session.destroy(() => {
          res.status(204).end();
       });
-      res.render('homepage');
    } else {
       res.status(404).end();
    }
