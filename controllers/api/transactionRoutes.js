@@ -17,7 +17,6 @@ router.post('/addTransaction', async (req, res) => {
         amt: req.body.amt,
         user_id: req.session.user_id,
       });
-  
       res.status(200).json(newTransaction);
     } catch (err) {
       res.status(500).json('Internal Server Error');
