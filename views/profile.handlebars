@@ -61,7 +61,7 @@
      {{#if transactions}}
           {{#each transactions as |trans|}}
     <tr>
-      <td>{{trans.date}}</td>
+      <td>{{format_date trans.date}}</td>
       <td><strong>{{trans.category}}</strong>
       </td>
       <td>{{trans.subcategory}}</td>
