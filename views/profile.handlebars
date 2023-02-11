@@ -1,37 +1,37 @@
 <div id="template">
-   <aside class="menu">
+  <aside class="menu">
     <br>
-      <p class="menu-label is-size-4">Actions</p>
-      <ul class="menu-list">
-         <li><button id="add-transactions-button" class="button is-link">Add Transaction</button></li><br>
-         <li><button id="set-budget-button" class="button is-link">Set Budget</button></li>
-      </ul>
-   </aside>
+    <p class="menu-label is-size-4">Actions</p>
+    <ul class="menu-list">
+      <li><button id="add-transactions-button" class="button is-link">Add Transaction</button></li><br>
+      <li><button id="set-budget-button" class="button is-link">Set Budget</button></li>
+    </ul>
+  </aside>
 
-   <main class="section">
-      <div class="columns">
-         <div class="column">
-            <p id="income">Income: {{sumIncome}}</p>
-         </div>
-         <div class="column">
-            <p id="expense">Expense: {{sumExpense}}</p>
-         </div>
-         <div class="column">
-            <p id="budget">Budget: {{budget.amount}}</p>
-         </div>
+  <main class="section">
+    <div class="columns">
+      <div class="column">
+        <p class="has-text-weight-bold" id="income">Income: {{sumIncome}}</p>
       </div>
+      <div class="column">
+        <p class="has-text-weight-bold" id="expense">Expense: {{sumExpense}}</p>
+      </div>
+      <div class="column">
+        <p class="has-text-weight-bold" id="budget">Budget: {{budget.amount}}</p>
+      </div>
+    </div>
 
-      <div class="columns">
-         <div class="column">
-            <canvas id="chart" style="width:100%;max-width:600px"></canvas>
-            {{! chart.js chart goes here }}
-         </div>
+    <div class="columns">
+      <div class="column">
+        <canvas id="chart" style="width:100%;max-width:600px"></canvas>
+        {{! chart.js chart goes here }}
       </div>
+    </div>
 
-      <div class="columns">
-         {{!-- {{> partial}} --}}
-      </div>
-   </main>
+    <div class="columns">
+      {{!-- {{> partial}} --}}
+    </div>
+  </main>
 </div>
 
 
@@ -91,33 +91,33 @@
       <form action="" class="box p-5">
         <label class="is-block mb-4">
           <span class="is-block mb-2 is-size-5">Date</span>
-          <input required type="date" class="input" id="transDate"/>
+          <input required type="date" class="input" id="transDate" />
         </label><br>
 
         <label class="is-block mb-4">
-          <span class="is-block mb-2 is-size-5">Category</span>   
-         <input type="radio" name="category" value="income" checked>
-         Income
-        <input type="radio" name="category" value="expense">
-         Expense
-         </label><br>
-       
-         <label class="is-block mb-4">
+          <span class="is-block mb-2 is-size-5">Category</span>
+          <input type="radio" name="category" value="income" checked>
+          Income
+          <input type="radio" name="category" value="expense">
+          Expense
+        </label><br>
+
+        <label class="is-block mb-4">
           <span class="is-block mb-2 is-size-5">Sub Category</span>
-          <input required type="text" class="input" id="transSubCat"/>
+          <input required type="text" class="input" id="transSubCat" />
         </label><br>
-       
-         <label class="is-block mb-4">
+
+        <label class="is-block mb-4">
           <span class="is-block mb-2 is-size-5">Description</span>
-          <input required type="text" class="input" id="transDesc"/>
+          <input required type="text" class="input" id="transDesc" />
         </label><br>
-       
-         <label class="is-block mb-4">
+
+        <label class="is-block mb-4">
           <span class="is-block mb-2 is-size-5">Amount</span>
-          <input required type="text" class="input" id="transAmount"/>
+          <input required type="text" class="input" id="transAmount" />
         </label>
         <br>
-       
+
         <div class="mb-4">
           <button type="submit" class="button is-link px-4 " id="postTransaction">Add Transaction</button>
         </div>
@@ -126,7 +126,32 @@
   </div>
 </div>
 
+<div class="container" style="display:none;" id="newBudgetForm">
+  <div class="columns is-justify-content-center">
+    <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
+      <br>
+      <h2 class="has-text-centered has-text-link is-size-5 is-capitalized">Set a new budget</h2><br>
+      <form class="box">
+        <div class="field">
+          <label for="" class="label">Amount:</label>
+
+
+          <div class="control has-icons-left">
+            <input type="text" class="input" id="budgetAmount">
+            <span class="icon is-small is-left">
+              <i class="fa fa-money"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <button class="button is-success" id="addBudgetBtn">Add Budget</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script src="./js/addTransaction.js"></script>
 <script src="./js/budgetChart.js"></script>
-
+<script src="./js/addBudget.js"></script>

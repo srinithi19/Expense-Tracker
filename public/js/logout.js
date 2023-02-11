@@ -5,9 +5,9 @@ async function logout() {
    });
  
    if (response.ok) {
-     document.location.replace('/');
+     document.location.replace('/login');
    } else {
-     alert('Failed to log out.');
+     alert('Please Log in again');
    }
  }
  
