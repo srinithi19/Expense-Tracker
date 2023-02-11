@@ -11,10 +11,11 @@
   <main class="section">
     <div class="columns">
       <div class="column">
-        <p class="has-text-weight-bold" id="income">Income: {{sumIncome}}</p>
+        <p class="has-text-weight-bold">Income:</p><input type="label" value={{sumIncome}} id="income"/>
+        {{!-- <p class="has-text-weight-bold">Income:</p><span class="tag"id="income" value="{{sumIncome}}"> {{sumIncome}} </span> --}}
       </div>
       <div class="column">
-        <p class="has-text-weight-bold" id="expense">Expense: {{sumExpense}}</p>
+        <p class="has-text-weight-bold">Expense:</p><input type="label" value={{sumExpense}} id="expense"/>
       </div>
       <div class="column">
         <p class="has-text-weight-bold" id="budget">Budget: {{budget.amount}}</p>

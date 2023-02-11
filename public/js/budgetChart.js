@@ -1,7 +1,8 @@
 var ctx = document.getElementById("chart").getContext('2d');
-var income = document.getElementById("sumIncome");
-var expense = document.getElementById("sumExpense");
+var income = document.getElementById("income").value;
+var expense = document.getElementById("expense").value;
 
+console.log(income + "========" + expense)
 var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
