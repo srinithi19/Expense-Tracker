@@ -11,13 +11,13 @@
    <main class="section">
       <div class="columns">
          <div class="column">
-            <p>Income: {{income}}</p>
+            <p id="income">Income: {{sumIncome}}</p>
          </div>
          <div class="column">
-            <p>Expense: {{expense}}</p>
+            <p id="expense">Expense: {{sumExpense}}</p>
          </div>
          <div class="column">
-            <p>Budget: {{budget}}</p>
+            <p id="budget">Budget: {{budget.amount}}</p>
          </div>
       </div>
 
@@ -56,7 +56,9 @@
       <th>Amount</th>
     </tr>
   </tfoot>
+ 
   <tbody>
+     {{#if transactions}}
           {{#each transactions as |trans|}}
     <tr>
       <td>{{trans.date}}</td>
@@ -65,10 +67,17 @@
       <td>{{trans.subcategory}}</td>
       <td>{{trans.description}}</td>
       <td>{{trans.amount}}</td>
-    </tr
+    </tr>
       {{/each}}
-   </tr
+      {{else}}
+      <tr>
+        <td>
+          No data Available
+        </td>
+      </tr>
+      {{/if}}
   </tbody>
+  
 </table>
 </div>
 
