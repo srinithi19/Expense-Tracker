@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User,Transaction,Budget } = require('../../models');
 const withAuth = require('../../utils/auth');
 
@@ -27,6 +28,7 @@ router.post('/addTransaction', withAuth, async (req, res) => {
       res.status(500).json('Internal Server Error');
     }
   });
+
 
 module.exports = router;
 
