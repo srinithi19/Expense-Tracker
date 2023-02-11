@@ -4,10 +4,12 @@ const addBudgetButton = document.getElementById('addBudgetBtn');
 var transHistoryEl = document.getElementById("transactions-partial");
 var newBudgetEl = document.getElementById("newBudgetForm"); 
 var setBudgetBtn = document.getElementById("set-budget-button"); 
+var newTransFormEl = document.getElementById("newTransForm");
 
 const replaceForm2 = () => {
   console.log('===Remove====TransHis')
   transHistoryEl.style.display = "none";
+  newTransFormEl.style.display = "none";
   newBudgetEl.style.display = "inline";
 };
 

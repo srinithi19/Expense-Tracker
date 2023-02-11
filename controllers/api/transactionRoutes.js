@@ -4,21 +4,26 @@ const withAuth = require('../../utils/auth');
 
 
 //create a new transaction income/expense
-router.post('/addTransaction', async (req, res) => {
+router.post('/addTransaction', withAuth, async (req, res) => {
     console.log("-----IN transaction api-----")
-    console.log(req.body.comment + "----------")
-    console.log(req.body.user + "---------")
+    console.log(req.body.date + "----------")
+    console.log(req.body.category + "----------")
+    console.log(req.body.subCategory + "----------")
+    console.log(req.body.amt + "----------")
+    console.log(req.body.user_id + "---------")
     try {
       const newTransaction = await Transaction.create({
-        date: req.body.comment,
+        date: req.body.date,
         category: req.body.category,
-        subCategory: req.body.subCategory,
+        subcategory: req.body.subCategory,
         description: req.body.desc,
-        amt: req.body.amt,
+        amount: req.body.amt,
         user_id: req.session.user_id,
       });
       res.status(200).json(newTransaction);
+      
     } catch (err) {
+      console.log(err)
       res.status(500).json('Internal Server Error');
     }
   });
