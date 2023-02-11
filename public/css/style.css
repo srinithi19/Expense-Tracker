@@ -44,3 +44,7 @@ aside.menu {
  .columns {
    width: 100%;
  }
+
+.button:hover {
+   cursor: pointer;
+}
