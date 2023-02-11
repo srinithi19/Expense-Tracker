@@ -5,22 +5,22 @@ const { User, Transaction, Budget } = require('../models');
 
 //Rrender application homepage
 router.get('/', async (req, res) => {
-    console.log("-------------------")
-    console.log("USER1" + req.session.name);
-    console.log("-------------------")
+  console.log("-------------------")
+  console.log("USER1" + req.session.name);
+  console.log("-------------------")
 
-    res.render('homepage', {
-      loggedIn: req.session.loggedIn // homepage now renders as logged in
-    });
+  res.render('homepage', {
+    loggedIn: req.session.loggedIn // homepage now renders as logged in
   });
+});
 
 //check to see if user is loggedin or else display login/signup form
 router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-    res.render('login');
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
 });
 
 router.get('/signup', (req, res) => {
@@ -29,8 +29,6 @@ router.get('/signup', (req, res) => {
 
 
 //HTML page to render users transactions
-//TODO - add withAuth
-
 router.get('/profile', withAuth, async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/');
@@ -39,65 +37,56 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     const transactionData = await Transaction.findAll({
       where: { user_id: req.session.user_id },
-    }); 
-  const budgetData = await Budget.findOne({
-    where: { user_id: req.session.user_id },
-  });
+    });
+    const budgetData = await Budget.findOne({
+      where: { user_id: req.session.user_id },
+    });
 
+    //     const expenseData = await Transaction.findAll({
+    //       attributes: [
+    //         [sequelize.fn('sum', sequelize.col('amount')), 'total'],
+    //       ]
+    //     }); 
+    //     const expense = expenseData.map((exp) => exp.get({ plain: true }));
 
-//     const expenseData = await Transaction.findAll({
-//       attributes: [
-//         [sequelize.fn('sum', sequelize.col('amount')), 'total'],
-//       ]
-//     }); 
-//     const expense = expenseData.map((exp) => exp.get({ plain: true }));
+    let transactions = {}
+    if (transactionData) {
+      transactions = transactionData.map((trans) => trans.get({ plain: true }));
+    }
 
- let transactions = {}
+    let budget = {}
+    if (!budgetData) {
+      budget.amount = 0
+    } else {
+      budget = budgetData.get({ plain: true })
+    }
 
-  if (transactionData) {
-  transactions = transactionData.map((trans) => trans.get({ plain: true }));
-        }
+    var sumIncome = 0;
+    var sumExpense = 0;
+    transactions.forEach(transaction => {
+      if (transaction.category === 'income') {
+        sumIncome += transaction.amount
+      } else if (transaction.category === 'expense') {
+        sumExpense += transaction.amount
+      }
+    })
 
-  let budget = {}
-  if (!budgetData) {
-    budget.amount = 0
-  } else{
-    budget = budgetData.get({ plain: true })
+    res.render('profile', {
+      loggedIn: req.session.loggedIn,
+      transactions,
+      date: req.body.date,
+      category: req.body.category,
+      subcategory: req.body.subCategory,
+      description: req.body.description,
+      amount: req.body.amount,
+      budget: budget,
+      sumIncome: sumIncome,
+      sumExpense: sumExpense
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
   }
-
-
-var sumIncome = 0;
- var sumExpense = 0;
-transactions.forEach(transaction => {
- if (transaction.category === 'income') {
-
-  sumIncome += transaction.amount
-} else if (transaction.category === 'expense') {
-
-  sumExpense += transaction.amount
-}
-})
-
-
-console.log(sumIncome)
-console.log(sumExpense)
-console.log(budget)
-
-  res.render('profile' , {
-    loggedIn: req.session.loggedIn,
-    transactions,
-    date: req.body.date,
-    category: req.body.category,
-    subcategory: req.body.subCategory,
-    description: req.body.description,
-    amount: req.body.amount,
-    budget: budget,
-    sumIncome: sumIncome,
-    sumExpense: sumExpense 
-  });
-} catch (err) {
-  console.log(err)
-  res.status(500).json(err)}
 });
 
 module.exports = router;
