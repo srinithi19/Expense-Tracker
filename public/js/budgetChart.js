@@ -10,7 +10,7 @@ var myChart = new Chart(ctx, {
          
             borderColor: ['#f443368c','#00968896'], // Add custom color border
             backgroundColor: ['#f443368c', '#00968896'], // Add custom color background (Points and Fill)
-            borderWidth: 1 // Specify bar border width
+            borderWidth: 2 // Specify bar border width
         }]},        
     options: {
       responsive: true, // Instruct chart js to respond nicely.

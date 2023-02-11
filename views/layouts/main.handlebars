@@ -20,18 +20,18 @@
                <a class="navbar-item" href="/">
       <img src="/images/mini.png" width="25" height="25">
     </a>
-               <a class="navbar-item" href="/">Home</a>
-               <a class="navbar-item" href="/profile">Profile</a>
+               <a class="navbar-item has-text-link has-text-weight-bold" href="/">Home</a>
+               <a class="navbar-item has-text-link has-text-weight-bold" href="/profile">Profile</a>
             </div>
 
                <div class="navbar-end">
                   {{#if loggedIn}}
-                  <a class="navbar-item button is-danger" id="logout">Logout</a>
+                  <a class="navbar-item button is-danger has-text-weight-bold" id="logout">Logout</a>
                   {{else}}
                   <div class="navbar-item">
                      <div class="buttons">
-                        <a class="button is-primary" href="/login">Login</a>
-                        <a class="button is-light" href="/signUp">Sign Up</a>
+                        <a class="button is-primary has-text-weight-bold" href="/login">Login</a>
+                        <a class="button is-light has-text-weight-bold" href="/signUp">Sign Up</a>
                      </div>
                   </div>
                   {{/if}}
