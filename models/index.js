@@ -1,9 +1,17 @@
 const User = require('./User')
 const Transaction = require('./Transaction')
 const Budget = require('./Budget')
+const Challenge = require('./Challenge')
+
 
 // User has many transaction 
 User.hasMany(Transaction, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE"
+})
+
+// User has many challenge 
+User.hasMany(Challenge, {
   foreignKey: "user_id",
   onDelete: "CASCADE"
 })
@@ -19,10 +27,16 @@ Transaction.belongsTo(User, {
   onDelete: "CASCADE"
 })
 
+// Challenge belongs to user
+Challenge.belongsTo(User, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE"
+})
+
 // Budget belongs to user 
 Budget.belongsTo(User, {
   foreignKey: "user_id",
   onDelete: "CASCADE"
 })
 
-module.exports = {User, Budget, Transaction};
+module.exports = {User, Budget, Transaction, Challenge};
