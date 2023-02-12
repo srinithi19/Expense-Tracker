@@ -95,6 +95,7 @@ router.get('/challenges', withAuth, async (req, res) => {
     res.redirect('/');
     return;
   }
+
   try {
     const challengesData = await Challenge.findAll({
       where: {
@@ -116,6 +117,7 @@ router.get('/challenges', withAuth, async (req, res) => {
     });
   }
 });
+
 
 module.exports = router;
 
