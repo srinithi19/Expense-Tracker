@@ -31,7 +31,7 @@ p {
 /* TEMPORARY */
 
 
-aside.menu {
+/* aside.menu {
    width: 33.33%;
    float: left;
  }
@@ -55,4 +55,4 @@ aside.menu {
 
 .button:hover::after {
    cursor: pointer;
-}
+} */

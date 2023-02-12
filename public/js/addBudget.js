@@ -1,4 +1,3 @@
-// const addBudgetForm = document.querySelector('.box');
 const amountInput = document.getElementById('budgetAmount');
 const addBudgetButton = document.getElementById('addBudgetBtn');
 var transHistoryEl = document.getElementById("transactions-partial");
@@ -41,4 +40,3 @@ const handleAddBudget = async (event) => {
 
 addBudgetButton.addEventListener('click', handleAddBudget);
 setBudgetBtn.addEventListener('click', replaceForm2);
-
