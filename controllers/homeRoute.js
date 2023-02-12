@@ -95,6 +95,7 @@ router.get('/challenges', withAuth, async (req, res) => {
     res.redirect('/');
     return;
   }
+  //query db
   res.render('challenge', {
     loggedIn: req.session.loggedIn,
   })
