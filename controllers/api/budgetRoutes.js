@@ -2,17 +2,23 @@ const router = require('express').Router();
 const { Budget } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/add', withAuth, async (req, res) => {
+router.put("/update", withAuth, async (req, res) => {
   try {
-    const budget = new Budget({
-      user_id: req.session.user_id,
-      amount: req.body.amount
+    const budgetData = await Budget.update({ amount: req.body.amount }, {
+      where: {
+        user_id: req.session.user_id
+      }
     });
-    await budget.save();
-    res.status(200).json({ budget });
+
+    if (!budgetData) {
+      res.status(404).json({ message: "Budget not found" });
+      return;
+    }
+
+    res.status(200).json({ budgetData });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server Error' });
+    res.status(500).json({ message: "Server Error" });
   }
 });
 

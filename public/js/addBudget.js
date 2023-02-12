@@ -1,4 +1,3 @@
-// const addBudgetForm = document.querySelector('.box');
 const amountInput = document.getElementById('budgetAmount');
 const addBudgetButton = document.getElementById('addBudgetBtn');
 var transHistoryEl = document.getElementById("transactions-partial");
@@ -22,17 +21,18 @@ const handleAddBudget = async (event) => {
   }
 
   try {
-    const response = await fetch('/api/budget/add', {
-      method: 'POST',
+    const response = await fetch('/api/budget/update', {
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ amount }),
     });
-
+    
+    if (response.ok) {
+      document.location.replace("/profile");
+    }
     if (!response.ok) {
       throw new Error('Failed to add budget');
     }
-
-    alert('Budget added successfully!');
   } catch (error) {
     console.error(error);
     alert('An error occurred while trying to add the budget');
@@ -41,4 +41,3 @@ const handleAddBudget = async (event) => {
 
 addBudgetButton.addEventListener('click', handleAddBudget);
 setBudgetBtn.addEventListener('click', replaceForm2);
-
