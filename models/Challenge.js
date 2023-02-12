@@ -12,11 +12,11 @@ Challenge.init(
       primaryKey: true,
       autoIncrement: true,
     }, 
-    Content: {
+    content: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    Badge: {
+    badge: {
         type: DataTypes.BOOLEAN, 
         defaultValue: false,
     },

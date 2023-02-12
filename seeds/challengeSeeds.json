@@ -1,0 +1,22 @@
+[
+    {
+      "content":"I do not want to buy coffee for a week",
+      "badge": false,
+      "user_id":"2"
+    },
+    {
+      "content":"I do not want to shop at amazon for 2 weeks",
+      "badge": true,
+      "user_id":"3"
+    },
+    {
+      "content":"I dont want to party for a week",
+      "badge": false,
+      "user_id":"4"
+    },
+    {
+      "content":"I want to save 75% of my income this month",
+      "badge": true,
+      "user_id":"5"
+    }
+  ]
