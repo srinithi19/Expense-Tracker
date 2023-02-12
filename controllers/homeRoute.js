@@ -89,5 +89,16 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+//api to display challenge page
+router.get('/challenges', withAuth, async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('challenge', {
+    loggedIn: req.session.loggedIn,
+  })
+})
+
 module.exports = router;
 
