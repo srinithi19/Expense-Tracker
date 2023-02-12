@@ -1,12 +1,12 @@
-<div>
+<div class="ml-5">
 
-  <h3 class="title is-size-3 has-text-center has-text-danger">Welcome to your Challenge Dashboard</h3>
+  <h3 class="title is-size-3 has-text-centered has-text-danger">Welcome to your Challenge Dashboard</h3>
   <ul>
     {{!-- variables are placeholders--}}
     {{#if challenges}}
     {{#each challenges as |challenge|}}
     <li class="is-flex-direction-row">
-      <input class="button is-success is-small" type="checkbox"/>
+      <input class="button is-outlined is-success is-small" type="checkbox" id="update-challenge-btn"/>
       <p>{{this.content}}</p>
       {{#if this.badge}}
 
@@ -18,7 +18,7 @@
     <h3>You currently have no challenges.</h3><br>
     {{/if}}
   </ul>
-
+<br>
   <button class="button is-link ml-5" id="add-challenge-btn">Add Challenge</button><br><br>
    <div class="ml-5">
    
