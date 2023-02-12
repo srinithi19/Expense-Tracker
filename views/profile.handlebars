@@ -1,10 +1,10 @@
 <div id="template">
   <aside class="menu">
     <br>
-    <p class="menu-label is-size-4">Actions</p>
+    <p class="menu-label is-size-4 ml-5">Actions</p>
     <ul class="menu-list">
-      <li><button id="add-transactions-button" class="button is-link">Add Transaction</button></li><br>
-      <li><button id="set-budget-button" class="button is-link">Set Budget</button></li>
+      <li><button id="add-transactions-button" class="button is-link ml-5">Add Transaction</button></li><br>
+      <li><button id="set-budget-button" class="button is-link ml-5">Set Budget</button></li>
     </ul>
   </aside>
 
@@ -21,17 +21,12 @@
       </div>
     </div>
 
-    <div class="columns">
-      <div class="column">
-        <canvas id="chart" style="width:100%;max-width:600px"></canvas>
+    <div class="columns is-centered">
+      <div class="column is-centered">
+        <canvas id="chart" style="width:100%;max-width:600px" class="is-centered is-justify-content-center	"></canvas>
         {{! chart.js chart goes here }}
       </div>
     </div>
-  
-  
-  
-  
-  
   </main>
 </div>
 
