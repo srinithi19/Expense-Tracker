@@ -1,5 +1,5 @@
 <div>
-  <h2 class="title is-2">Welcome to you Challenge Dashboard</h2>
+  <h3 class="title is-size-3 has-text-centered has-text-danger">Welcome to your Challenge Dashboard</h3>
   <ul>
     {{!-- variables are placeholders--}}
     {{#if challenges}}
@@ -13,14 +13,39 @@
     </li>
     {{/each}}
     {{else}}
-    <h3>You currently have no challenges.</h3>
+    <h3>You currently have no challenges.</h3><br>
+    {{/if}}
   </ul>
-  <button class="button is-success">Add Challenge</button>
+  <button class="button is-link" id="add-challenge-btn">Add Challenge</button><br><br>
    <div>
     <p>Drive yourself closer to financial success by adding challenges and gaining stars. </p>
-    <p>Set challenges yourself to personalize your financial journey. Now challenge is too big or too small. Start small an work your way up. These are personalized goals for you to work on your financial habits. Everyone is going to have different goals but here are some examples.</p>
+    <p>Set challenges yourself to personalize your financial journey. Now challenge is too big or too small. Start small an work your way up. 
+      These are personalized goals for you to work on your financial habits.
+       Everyone is going to have different goals but here are some examples.</p>
     <ul>
       <li>Go a whole day without spending money!</li>
       <li>One week with no coffee shop coffee.</li>
     </ul>
   </div>
+  <div class="container" style="display:none;" id="newChallengeForm">
+  <div class="columns is-justify-content-center">
+    <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
+      <br>
+      <h2 class="has-text-centered has-text-link is-size-5 has-text-weight-bold">Set a new Challenge</h2>
+      <form class="box">
+        <div class="field">
+          <label for="" class="label">Content:</label>
+          <div class="control has-icons-left">
+            <input type="text" class="input" id="challengeText">
+          </div>
+        </div>
+
+        <div class="field">
+          <button class="button is-link" id="addChallengeBtn">Add Challenge</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+
+  <script src="./js/addChallenge.js"></script>
