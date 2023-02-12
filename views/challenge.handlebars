@@ -1,11 +1,11 @@
 <div>
   <h3 class="title is-size-3 has-text-centered has-text-danger">Welcome to your Challenge Dashboard</h3>
-  <ul>
+  <ul class="ml-5">
     {{!-- variables are placeholders--}}
     {{#if challenges}}
-    {{#each challenges}}
+    {{#each challenges as |challenge|}}
     <li class="is-flex-direction-row	">
-      <input class="button is-success is-small" type="checkbox"/>
+      <input class="button is-success is-small" type="checkbox" id="completeChallenge"/>
       <p>{{challenge.content}}</p>
       {{#if challenge.reward}}
       <i class="fad fa-star  Warning"></i>
@@ -16,10 +16,10 @@
     <h3>You currently have no challenges.</h3><br>
     {{/if}}
   </ul>
-  <button class="button is-link" id="add-challenge-btn">Add Challenge</button><br><br>
-   <div>
+  <button class="button is-link ml-5" id="add-challenge-btn">Add Challenge</button><br><br>
+   <div class="ml-5">
     <p>Drive yourself closer to financial success by adding challenges and gaining stars. </p>
-    <p>Set challenges yourself to personalize your financial journey. Now challenge is too big or too small. Start small an work your way up. 
+    <p>Set challenges yourself to personalize your financial journey. No challenge is too big or too small. Start small an work your way up. 
       These are personalized goals for you to work on your financial habits.
        Everyone is going to have different goals but here are some examples.</p>
     <ul>
