@@ -14,13 +14,10 @@
 </head>
 
 <body>
-   <header>
       <header>
-         <nav class="navbar" role="navigation" aria-label="main navigation">
+         <nav class="navbar is-flex-direction-row" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-               <a class="navbar-item" href="/">
-      <img src="/images/mini.png" width="25" height="25">
-    </a>
+               <a class="navbar-item" href="/"><img src="/images/mini.png" width="25" height="25"></a>
                <a class="navbar-item has-text-link has-text-weight-bold" href="/">Home</a>
                <a class="navbar-item has-text-link has-text-weight-bold" href="/profile">Profile</a>
                <a class="navbar-item has-text-link has-text-weight-bold" href="/challenges">Challenges</a>
@@ -29,21 +26,17 @@
 
                <div class="navbar-end">
                   {{#if loggedIn}}
-                  <a class="navbar-item button has-text-weight-bold mr-2" id="logout">Logout</a>
+                  <div class="navbar-item"><a class="navBtn button has-text-weight-bold" id="logout">Logout</a></div>
+                  
                   {{else}}
                   <div class="navbar-item">
-                     <div class="buttons">
-                        <a class="button is-primary has-text-weight-bold" href="/login">Login</a>
-                        <a class="button is-light has-text-weight-bold" href="/signUp">Sign Up</a>
-                     </div>
+                        <a class="navBtn button is-primary has-text-weight-bold" href="/login">Login</a>
+                        <a class="navBtn button is-light has-text-weight-bold" href="/signUp">Sign Up</a>
                   </div>
                   {{/if}}
                </div>
          </nav>
       </header>
-
-   </header>
-
    <main>
       {{{ body }}}
    </main>

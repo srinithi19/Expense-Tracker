@@ -1,5 +1,6 @@
 const amountInput = document.getElementById('budgetAmount');
-const addBudgetButton = document.getElementById('addBudgetBtn');
+const editBudgetButton = document.getElementById('editBudgetBtn');
+const setBudgetButton = document.getElementById('setBudgetBtn');
 var transHistoryEl = document.getElementById("transactions-partial");
 var newBudgetEl = document.getElementById("newBudgetForm"); 
 var setBudgetBtn = document.getElementById("set-budget-button"); 
@@ -12,12 +13,15 @@ const replaceForm2 = () => {
   newBudgetEl.style.display = "inline";
 };
 
-const handleAddBudget = async (event) => {
+const editBudget = async (event) => {
   event.preventDefault();
   const amount = amountInput.value;
 
   if (!amount) {
     return alert('Please enter an amount');
+  }
+  if (amount <= 0) {
+    return alert('Budget must be 1 or greater');
   }
 
   try {
@@ -26,6 +30,7 @@ const handleAddBudget = async (event) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ amount }),
     });
+
     
     if (response.ok) {
       document.location.replace("/profile");
@@ -39,5 +44,36 @@ const handleAddBudget = async (event) => {
   }
 };
 
-addBudgetButton.addEventListener('click', handleAddBudget);
+const setBudget = async (event) => {
+  console.log()
+  event.preventDefault();
+  const amount = amountInput.value;
+
+  if (!amount) {
+    return alert('Please enter an amount');
+  }
+
+  try {
+    const response = await fetch('/api/budget/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount }),
+    });
+
+    if (response.ok) {
+      document.location.replace("/profile");
+    }
+    if (!response.ok) {
+      throw new Error('Failed to add budget');
+    }
+  } catch (error) {
+    console.error(error);
+    alert('An error occurred while trying to add the budget');
+  }
+};
+
+
+
+editBudgetButton.addEventListener('click', editBudget);
+setBudgetButton.addEventListener('click', setBudget);
 setBudgetBtn.addEventListener('click', replaceForm2);

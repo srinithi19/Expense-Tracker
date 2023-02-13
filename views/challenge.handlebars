@@ -1,57 +1,64 @@
 <div class="ml-5">
-
   <h3 class="title is-size-3 has-text-centered has-text-danger">Welcome to your Challenge Dashboard</h3>
-  <ul>
+  <ul class="challenge-card-container">
     {{!-- variables are placeholders--}}
     {{#if challenges}}
     {{#each challenges as |challenge|}}
-    <li class="is-flex-direction-row">
-      <p><input class="update-button button is-outlined is-success is-small" type="checkbox" id="update-challenge-btn" data-id={{this.id}}/>
-      {{this.content}}
-      {{#if this.badge}}
-      <i class='fa fa-star' style='color: #f3da35'></i>
-      {{/if}}</p>
+    <li class="challenge-card is-flex-direction-row">
+      <p><button class="update-button button is-outlined is-success is-small" type="checkbox" id="update-challenge-btn"
+          data-id={{this.id}}><i class="fa fa-check" aria-hidden="true"></i></button>
+        {{this.content}}
+        {{#if this.badge}}
+        <i class='fa fa-star' style='color: #f3da35'></i>
+        {{/if}}
+      </p>
     </li>
     {{/each}}
     {{else}}
-    <h3>You currently have no challenges.</h3><br>
+    <div class='has-text-centered'> 
+      <img src="/images/loading.gif" alt="loading icon" style="width:150px;height:150px;"/>
+      <p id="challenge-header">You currently have no challenges.</p>
+    </div>
     {{/if}}
   </ul>
-<br>
-  <button class="button is-link ml-5" id="add-challenge-btn">Add Challenge</button><br><br>
-   <div class="ml-5">
-   
-    <p>Drive yourself closer to financial success by adding challenges and gaining stars. </p>
-    <p>Set challenges yourself to personalize your financial journey. No challenge is too big or too small. Start small an work your way up. 
-      These are personalized goals for you to work on your financial habits.
-       Everyone is going to have different goals but here are some examples:</p>
+  <div>{{!--class='has-text-centered'--}}
+    <button class="button is-link ml-5" id="add-challenge-btn">Add Challenge</button>
+  </div>
+  <article class="ml-5" id="chall-inst-container">
 
-    <ul>
-      <li>Go a whole day without spending money!</li>
-      <li>One week with no coffee shop coffee.</li>
+    <h4 class='has-text-centered' id="chall-inst-header">Drive yourself closer to financial success by adding challenges
+      and gain stars! </h4>
+    <br>
+    <p id="chall-inst-text">Set challenges yourself to personalize your financial journey. No challenge is too big or too small. Start small
+      and work your way up. These are personalized goals for you to work on your financial habits. Everyone is going to
+      have different goals but here are some examples:</p>
+    <br>
+    <ul class="challenge-card-container">
+      <li class="challenge-card is-flex-direction-row">Go a whole day without spending money!</li>
+      <li class="challenge-card is-flex-direction-row">One week with no coffee shop coffee.</li>
     </ul>
-    
-  </div>
-  <div class="container" style="display:none;" id="newChallengeForm">
-  <div class="columns is-justify-content-center">
-    <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
-      <br>
-      <h2 class="has-text-centered has-text-link is-size-5 has-text-weight-bold">Set a new Challenge</h2>
-      <form class="box">
-        <div class="field">
-          <label for="" class="label">Content:</label>
-          <div class="control has-icons-left">
-            <input type="text" class="input" id="challengeText">
-          </div>
-        </div>
 
-        <div class="field">
-          <button class="button is-link" id="addChallengeBtn">Add Challenge</button>
-          <div id="message-container"></div>
-        </div>
-      </form>
+  </article>
+  <div class="container" style="display:none;" id="newChallengeForm">
+    <div class="columns is-justify-content-center">
+      <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
+        <br>
+        <h2 class="has-text-centered has-text-link is-size-5 has-text-weight-bold">Set a new Challenge</h2>
+        <form class="box">
+          <div class="field">
+            <label for="" class="label">Content:</label>
+            <div class="control has-icons-left">
+              <input type="text" class="input" id="challengeText">
+            </div>
+          </div>
+
+          <div class="field">
+            <button class="button is-link" id="addChallengeBtn">Add Challenge</button>
+            <div id="message-container"></div>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
   </div>
 
   <script src="./js/addChallenge.js"></script>
