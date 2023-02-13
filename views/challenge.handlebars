@@ -1,12 +1,38 @@
 <div class="ml-5">
-  <h3 class="title is-size-3 has-text-centered has-text-danger">Welcome to your Challenge Dashboard</h3>
+  <h3 class="title is-size-3 has-text-centered has-text-danger">Welcome to your Challenge Dashboard <i class='fa fa-star' style='color: #f3da35' >{{starCounter}}</i></h3>
+
+
+ <div>
+  <button class="button is-link ml-5" id="add-challenge-btn">Add Challenge</button>
+  </div>
+ <div class="container" style="display:none;" id="newChallengeForm">
+  <div class="columns is-justify-content-center">
+    <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
+      <br>
+      <h2 class="has-text-centered has-text-link is-size-5 has-text-weight-bold">Set a new Challenge</h2>
+      <form class="box">
+        <div class="field">
+          <label for="" class="label">Content:</label>
+          <div class="control has-icons-left">
+            <input type="text" class="input" id="challengeText">
+          </div>
+        </div>
+        <div class="field">
+          <button class="button is-link" id="addChallengeBtn">Add Challenge</button>
+          <div id="message-container"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+ </div>
+
+
   <ul class="challenge-card-container">
-    {{!-- variables are placeholders--}}
     {{#if challenges}}
     {{#each challenges as |challenge|}}
     <li class="challenge-card is-flex-direction-row">
       <p><button class="update-button button is-outlined is-success is-small" type="checkbox" id="update-challenge-btn"
-          data-id={{this.id}}><i class="fa fa-check" aria-hidden="true"></i></button>
+          data-id={{this.id}}>{{#if this.badge}}<i class="fa fa-check" aria-hidden="true">{{/if}}</i></button>
         {{this.content}}
         {{#if this.badge}}
         <i class='fa fa-star' style='color: #f3da35'></i>
@@ -21,9 +47,7 @@
     </div>
     {{/if}}
   </ul>
-  <div>{{!--class='has-text-centered'--}}
-    <button class="button is-link ml-5" id="add-challenge-btn">Add Challenge</button>
-  </div>
+
   <article class="ml-5" id="chall-inst-container">
 
     <h4 class='has-text-centered' id="chall-inst-header">Drive yourself closer to financial success by adding challenges
@@ -39,26 +63,5 @@
     </ul>
 
   </article>
-  <div class="container" style="display:none;" id="newChallengeForm">
-    <div class="columns is-justify-content-center">
-      <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
-        <br>
-        <h2 class="has-text-centered has-text-link is-size-5 has-text-weight-bold">Set a new Challenge</h2>
-        <form class="box">
-          <div class="field">
-            <label for="" class="label">Content:</label>
-            <div class="control has-icons-left">
-              <input type="text" class="input" id="challengeText">
-            </div>
-          </div>
-
-          <div class="field">
-            <button class="button is-link" id="addChallengeBtn">Add Challenge</button>
-            <div id="message-container"></div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
+</div>
   <script src="./js/addChallenge.js"></script>
