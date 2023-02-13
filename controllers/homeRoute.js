@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { User, Transaction, Budget } = require('../models');
+const { User, Transaction, Budget, Challenge } = require('../models');
 
 
 //Rrender application homepage
@@ -89,16 +89,35 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-//api to display challenge page
+// api to display the challenge page
 router.get('/challenges', withAuth, async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect('/');
     return;
   }
-  res.render('challenge', {
-    loggedIn: req.session.loggedIn,
-  })
-})
+
+  try {
+    const challengesData = await Challenge.findAll({
+      where: {
+        user_id: req.session.user_id
+      }
+    });
+    let challenges = {};
+    if (challengesData) {
+      challenges = challengesData.map((challenge) => challenge.get({ plain: true }));
+    }
+    res.render('challenge', {
+      loggedIn: req.session.loggedIn,
+      challenges
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      message: 'Error retrieving challenges'
+    });
+  }
+});
+
 
 module.exports = router;
 
