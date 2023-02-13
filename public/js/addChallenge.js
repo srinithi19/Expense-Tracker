@@ -61,9 +61,11 @@ try {
   }
 }
 
-if(updateChallengeBtn) {
-updateChallengeBtn.addEventListener('click', updateChallenge);
-}
+if(document.querySelectorAll('.update-button'))
+document.querySelectorAll('.update-button').forEach((updateButton) => {
+    updateButton.addEventListener('click', updateChallenge);
+  });
+
 setChallengeBtn.addEventListener('click', replaceForm);
 newChallengeEl.addEventListener('click', submitFromHandler);
 
