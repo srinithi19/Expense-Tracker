@@ -35,19 +35,19 @@ See the [Deployed Site]()
 | dotenv | [https://www.npmjs.com/package/dotenv](https://www.npmjs.com/package/dotenv) |
 | bcrypt | [https://www.npmjs.com/package/bcrypt](https://www.npmjs.com/package/bcrypt) |
 | MySQL | [https://www.npmjs.com/package/mysql2/](https://www.npmjs.com/package/mysql2/) |
-| Sequalize | [https://sequelize.org/api/v6/identifiers/](https://sequelize.org/api/v6/identifiers/) |
+| Sequelize | [https://sequelize.org/api/v6/identifiers/](https://sequelize.org/api/v6/identifiers/) |
 | Bulma | [https://bulma.io/](https://bulma.io/) |
 | Chart.js | [https://www.chartjs.org/docs/latest//](https://www.chartjs.org/docs/latest//) |
 | Heroku | [https://devcenter.heroku.com/categories/reference/](https://devcenter.heroku.com/categories/reference/) |
 
 ## Usage
 
-Users will be presented with the Home Page of the application. User can choose to login/signp. Upon successful login/signup, they can view their Profile which shows transaction history and allow them to post new transaction or set new budget by clicking on repsective buttons. Users can also set their own Challenges under Challenge tab by clicking Add Challenge button. The challenge page displays list of users challenge if any with the completion status. We used Express-session to save user session and authenticated the application using middlewares.
+Users will be presented with the Home Page of the application. User can choose to login/sign up. Upon successful login/sign up, they can view their Profile which shows transaction history and allow them to post new transaction or set new budget by clicking on respective buttons. Users can also set their own Challenges under Challenge tab by clicking Add Challenge button. The challenge page displays list of users challenge if any with the completion status. We used Express-session to save user session and authenticated the application using middleware.
 
 ## User Story
 
 1. As a User,
-I want to signup,
+I want to sign up,
 so that I can view/post my income/expense
 
 2. As a User,
@@ -76,7 +76,7 @@ I can reward with badges
 
 ## Home Page  
 
-This is the homepage of the application where the user can signup/login to track their expenses
+This is the homepage of the application where the user can sign up/login to track their expenses
 
 ![homepage](assets/homepage.png)
 
@@ -157,12 +157,12 @@ Modal Association:
 
 To build out this project, we used the CSS framework Bulma. Bulma is a free and open-source CSS framework that is used to create responsive and modern web designs. It is based on Flexbox to create easy and responsive grid layouts. 
 
-We used a range of pre-designed UI elements, such as forms, buttons, heros, and modals, that were easily customized to fit the needs of our project. We primarily relied on the classes associated with layouts, `columns` Thanks to the built in repsonsiveness, we only needed a few media queries to obtain our desired styling.
+We used a range of pre-designed UI elements, such as forms, buttons, heros, and modals, that were easily customized to fit the needs of our project. We primarily relied on the classes associated with layouts, `columns` Thanks to the built in responsiveness, we only needed a few media queries to obtain our desired styling.
 
 
 ## Learning Points 
 
-We learnt how to build a full stack app using HTML, CSS , JS , NodeJs, ExpressJs, MySql , sequlize , middlewares, sessions & cookies, handlebars and deployed using Heroku and how to implement MVC paradigm in a full stack application
+We learnt how to build a full stack app using HTML, CSS , JS , NodeJs, ExpressJs, MySql , sequelize , middleware, sessions & cookies, handlebars and deployed using Heroku and how to implement MVC paradigm in a full stack application
 
 
 ## Author Info
@@ -171,19 +171,22 @@ This project was done in collaboration with the following people:
 
 ### Becka McNally
 
-* [LinkedIn]()
-* [Github]()
+* [LinkedIn](https://www.linkedin.com/in/becka-mcnally/)
+* [Portfolio](https://beckamcnally.github.io/beckamcnally/)
+* [Github](https://github.com/beckamcnally?tab=repositories)
 
 
 ### Daniele Bensan
 
 * [LinkedIn]()
-* [Github]()
+* [Portfolio](https://dbbensan.github.io/BensanPortfolio/)
+* [Github](https://github.com/DBBENSAN?tab=repositories)
 
 
 ### Srinithi Ravichandran
 
 * [LinkedIn](https://www.linkedin.com/in/srinithi-ravichandran-18891243/)
+* [Portfolio](https://srinithi19.github.io/My-Portfolio/)
 * [Github](https://github.com/srinithi19)
 
 
