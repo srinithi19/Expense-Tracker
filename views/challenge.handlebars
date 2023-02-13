@@ -6,12 +6,11 @@
     {{#if challenges}}
     {{#each challenges as |challenge|}}
     <li class="is-flex-direction-row">
-      <input class="button is-outlined is-success is-small" type="checkbox" id="update-challenge-btn"/>
-      <p>{{this.content}}</p>
+      <p><input class="button is-outlined is-success is-small" type="checkbox" id="update-challenge-btn" data-id={{this.id}}/>
+      {{this.content}}
       {{#if this.badge}}
-
-      <i class="fad fa-star  Warning"></i>
-      {{/if}}
+      <i class='fa fa-star' style='color: #f3da35'></i>
+      {{/if}}</p>
     </li>
     {{/each}}
     {{else}}
