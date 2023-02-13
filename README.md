@@ -2,7 +2,7 @@
 
 Welcome to Scrooge, an expense tracker application! This is a fun and engaging platform that helps you keep track of your expenses and manage your finances. It's a gamified version of a finance app, making budgeting and financial management enjoyable and easy. With its simple and intuitive interface, you can quickly and easily record your income and expenses, so you always have a clear understanding of your financial situation. 
 
-See the [Deployed Site]()
+See the [Deployed Site](https://secure-anchorage-04407.herokuapp.com/)
 
 
 ## Table of Contents
@@ -54,7 +54,7 @@ so that I can view/post my income/expense
 I want to login,
 so that I can view/post my income/expenses
 
-3.As a User,
+3. As a User,
 I want to record a new transaction,
 so that I can track my expense
 
