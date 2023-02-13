@@ -20,6 +20,9 @@ const editBudget = async (event) => {
   if (!amount) {
     return alert('Please enter an amount');
   }
+  if (amount <= 0) {
+    return alert('Budget must be 1 or greater');
+  }
 
   try {
     const response = await fetch('/api/budget/update', {
@@ -27,6 +30,7 @@ const editBudget = async (event) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ amount }),
     });
+
     
     if (response.ok) {
       document.location.replace("/profile");
@@ -41,7 +45,7 @@ const editBudget = async (event) => {
 };
 
 const setBudget = async (event) => {
-  console.log('============AJSKAKCA========')
+  console.log()
   event.preventDefault();
   const amount = amountInput.value;
 
