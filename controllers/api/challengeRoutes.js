@@ -10,14 +10,15 @@ router.post("/addChallenge", withAuth, async (req, res) => {
   try {
     const challengeData = await Challenge.create({
       content: req.body.content,
-      badge: req.body.badge,
+      badge : "false",
       user_id: req.session.user_id,
     });
-    console.log(res)
+    //console.log(res)
     res.status(200).json({challengeData});
 
   } catch (err) {
-    console.log(err)
+    //console.log(err)
+    console.log("HERE:======="+response.statusText)
     res.status(500).json(err);
   }
 });
@@ -37,7 +38,7 @@ router.put("/update/:id", withAuth, async (req, res) => {
         }
       })
 
-    console.log(res)
+    //console.log(res)
     res.status(200).json({challengeData});
 
   } catch (err) {
