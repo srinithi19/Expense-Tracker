@@ -139,12 +139,16 @@
         </div>
 
         <div class="field">
-          <button class="button is-link" id="addBudgetBtn">Add Budget</button>
-        </div>
-      </form>
+            {{#if budget === 0}}
+            <button class="button is-link" id="editBudgetBtn">Edit Budget</button>
+            {{else}}
+            <button class="button is-link" id="setBudgetBtn">Set Budget</button>
+            {{/if}}
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <script src="./js/addTransaction.js"></script>
