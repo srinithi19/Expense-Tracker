@@ -4,6 +4,7 @@ var updateChallengeBtn = document.getElementById("update-challenge-btn");
 
 
 const replaceForm = () => {
+    console.log("=======show form=======")
     newChallengeEl.style.display = "inline";
 };
 
@@ -38,9 +39,11 @@ const submitFromHandler = async (event) => {
 const updateChallenge = async(event) => {
 console.log("in ");
 event.preventDefault();
+const id = event.target.getAttribute('data-id');
+console.log(id)
 const badge = true;
 try {
-    const response = await fetch('/api/challenge/update', {
+    const response = await fetch(`/api/challenge/update/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ badge }),

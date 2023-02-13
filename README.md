@@ -30,6 +30,10 @@ See the [Deployed Site]()
 | Git | [https://git-scm.com/](https://git-scm.com/) |
 | NodeJs | [https://nodejs.org/docs/latest-v16.x/api//](https://nodejs.org/docs/latest-v16.x/api//) |
 | ExpressJs | [https://expressjs.com/en/4x/api.html/](https://expressjs.com/en/4x/api.html/) |
+| Express-sessions | [https://www.npmjs.com/package/express-session](https://www.npmjs.com/package/express-session) |
+| Handlebars | [https://handlebarsjs.com/](https://handlebarsjs.com/) |
+| dotenv | [https://www.npmjs.com/package/dotenv](https://www.npmjs.com/package/dotenv) |
+| bcrypt | [https://www.npmjs.com/package/bcrypt](https://www.npmjs.com/package/bcrypt) |
 | MySQL | [https://www.npmjs.com/package/mysql2/](https://www.npmjs.com/package/mysql2/) |
 | Sequalize | [https://sequelize.org/api/v6/identifiers/](https://sequelize.org/api/v6/identifiers/) |
 | Bulma | [https://bulma.io/](https://bulma.io/) |
