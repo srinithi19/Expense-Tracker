@@ -61,8 +61,9 @@ try {
   }
 }
 
-
+if(updateChallengeBtn) {
 updateChallengeBtn.addEventListener('click', updateChallenge);
+}
 setChallengeBtn.addEventListener('click', replaceForm);
 newChallengeEl.addEventListener('click', submitFromHandler);
 
