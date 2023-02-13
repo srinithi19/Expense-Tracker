@@ -105,10 +105,18 @@ router.get('/challenges', withAuth, async (req, res) => {
     let challenges = {};
     if (challengesData) {
       challenges = challengesData.map((challenge) => challenge.get({ plain: true }));
+      challenges = challenges.reverse()
     }
+    
+  
+      let starCounter = 0;
+      for (const input of challenges) {
+        if (input.badge === true) starCounter += 1; 
+      }
     res.render('challenge', {
       loggedIn: req.session.loggedIn,
-      challenges
+      challenges,
+      starCounter
     });
   } catch (err) {
     console.error(err);

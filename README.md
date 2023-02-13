@@ -78,7 +78,7 @@ I can reward with badges
 
 This is the homepage of the application where the user can sign up/login to track their expenses
 
-![homepage](assets/homepage.png)
+![homepage](assets/homepageSS.png)
 
 ![login](assets/login.png)
 
@@ -96,7 +96,7 @@ This page displays users transaction history, their accumulated Income/Expense a
 
 This page allows list users challenge if available and users can set their challenge by clicking "Add Challenge" button. These are personalized goals for users to work on their financial habits. 
 
-![challenges](assets/challenges.png)
+![challenges](assets/challenge.png)
 
 ## Models
 

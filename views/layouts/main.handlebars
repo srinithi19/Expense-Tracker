@@ -19,9 +19,10 @@
             <div class="navbar-brand">
                <a class="navbar-item" href="/"><img src="/images/mini.png" width="25" height="25"></a>
                <a class="navbar-item has-text-link has-text-weight-bold" href="/">Home</a>
+                {{#if loggedIn}}
                <a class="navbar-item has-text-link has-text-weight-bold" href="/profile">Profile</a>
                <a class="navbar-item has-text-link has-text-weight-bold" href="/challenges">Challenges</a>
-
+               {{/if}}
             </div>
 
                <div class="navbar-end">
