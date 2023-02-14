@@ -21,7 +21,7 @@ QuestUser.init(
         key: 'id',
       },
     },
-    questUser_id: {
+    quest_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',

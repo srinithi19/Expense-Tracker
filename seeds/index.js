@@ -5,6 +5,8 @@ const userSeeds = require('./userSeeds.json');
 const budgetSeeds = require('./budgetSeeds.json');
 const transactionSeeds = require('./transactionSeeds.json');
 const challengeSeeds = require('./challengeSeeds.json');
+const questSeeds = require('./questSeeds.json');
+const questUserSeeds = require('./questUserSeed.json');
 
 
 const seedDatabase = async () => {
@@ -18,8 +20,8 @@ const seedDatabase = async () => {
   const transactions = await Transaction.bulkCreate(transactionSeeds);
   const budget = await Budget.bulkCreate(budgetSeeds)
   const challenge = await Challenge.bulkCreate(challengeSeeds)
-  const quest = await Quest.bulkCreate(quest)
-  const questUser = await QuestUser.bulkCreate(questUser)
+  const quest = await Quest.bulkCreate(questSeeds)
+  const questUser = await QuestUser.bulkCreate(questUserSeeds)
 
   process.exit(0);
 };

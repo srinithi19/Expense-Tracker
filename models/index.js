@@ -35,6 +35,10 @@ Quest.belongsTo(User, {
   through: QuestUser
 })
 
+User.belongsToMany(Quest, {
+  through: QuestUser
+})
+
 // Challenge belongs to user
 Challenge.belongsTo(User, {
   foreignKey: "user_id",
@@ -47,4 +51,4 @@ Budget.belongsTo(User, {
   onDelete: "CASCADE"
 })
 
-module.exports = {User, Budget, Transaction, Challenge};
+module.exports = {User, Budget, Transaction, Challenge, Quest, QuestUser};
