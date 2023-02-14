@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { User, Budget, Transaction, Challenge } = require('../models');
+const { User, Budget, Transaction, Challenge, Quest, QuestUser } = require('../models');
 
 const userSeeds = require('./userSeeds.json');
 const budgetSeeds = require('./budgetSeeds.json');
@@ -18,6 +18,8 @@ const seedDatabase = async () => {
   const transactions = await Transaction.bulkCreate(transactionSeeds);
   const budget = await Budget.bulkCreate(budgetSeeds)
   const challenge = await Challenge.bulkCreate(challengeSeeds)
+  const quest = await Quest.bulkCreate(quest)
+  const questUser = await QuestUser.bulkCreate(questUser)
 
   process.exit(0);
 };
