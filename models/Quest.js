@@ -14,9 +14,9 @@ Quest.init(
     }, 
     url: {
       type: DataTypes.TEXT,
-      validate: {
-        isUrl: true,
-      },
+      // validate: {
+      //   isUrl: true,
+      // },
     }
   },
   {

@@ -2,13 +2,75 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { User, Transaction, Budget, Challenge, Quest } = require('../models');
 
+async function renderAvatar(userId) {
+  console.log(userId)
+  const challengesData = await Challenge.findAll({
+    where: {
+      user_id: userId
+    }
+  });
+
+  let challenges = {};
+  if (challengesData) {
+    challenges = challengesData.map((challenge) => challenge.get({ plain: true }));
+    challenges = challenges.reverse()
+  }
+
+  let starCounter = 0;
+  for (const input of challenges) {
+    if (input.badge === true) starCounter += 1;
+  }
+  console.log(starCounter)
+
+  if (starCounter <= 4) {
+    const avatarData = await Quest.findOne({
+      where: {
+        id: 1
+      }
+    })
+    const avatar = avatarData.get({ plain: true })
+    return avatar;
+  }
+
+  if (starCounter <= 5 || starCounter >= 9) {
+    const avatar = await Quest.findOne({
+      where: {
+        id: 2
+      }
+    })
+    return avatar;
+  }
+
+  if (starCounter <= 10 || starCounter >= 14) {
+    const avatar = await Quest.findOne({
+      where: {
+        id: 3
+      }
+    })
+    return avatar;
+  }
+
+  if (starCounter >= 15) {
+    const avatar = await Quest.findOne({
+      where: {
+        id: 4
+      }
+    })
+    return avatar;
+  }
+}
+
 
 //Rrender application homepage
 router.get('/', async (req, res) => {
 
+  if (req.session.user_id) {
+    var avatar = renderAvatar(req.session.user_id)
+  }
 
   res.render('homepage', {
     loggedIn: req.session.loggedIn, // homepage now renders as logged in
+    avatar: avatar.url
   });
 });
 
@@ -108,21 +170,17 @@ router.get('/challenges', withAuth, async (req, res) => {
     for (const input of challenges) {
       if (input.badge === true) starCounter += 1;
     }
-    
-    // gets quest to render for challenges page
-    let questData = await Quest.findAll({ 
-      where: {
-        user_id: req.session.user_id
-      }
-    })
 
-    const quest = questData.map((quest) => quest.get({ plain: true }))
+    // gets quest to render for challenges page
+    let questData = await Quest.findAll()
+
+    const quests = questData.map((quest) => quest.get({ plain: true }))
 
     res.render('challenge', {
       loggedIn: req.session.loggedIn,
       challenges,
       starCounter,
-      quest
+      quests
     });
   } catch (err) {
     res.status(500).json({
