@@ -18,10 +18,7 @@ router.post("/addChallenge", withAuth, async (req, res) => {
 });
 
 router.put("/update/:id", withAuth, async (req, res) => {
-  console.log('hitting update Challenge')
-  console.log(req.body)
-  console.log(req.params.id)
-  console.log(req.session)
+
 
   try {
     const challengeData = await Challenge.update({
