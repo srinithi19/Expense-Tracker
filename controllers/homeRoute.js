@@ -5,9 +5,7 @@ const { User, Transaction, Budget, Challenge } = require('../models');
 
 //Rrender application homepage
 router.get('/', async (req, res) => {
-  console.log("-------------------")
-  console.log("USER1" + req.session.name);
-  console.log("-------------------")
+  
 
   res.render('homepage', {
     loggedIn: req.session.loggedIn // homepage now renders as logged in
@@ -84,7 +82,6 @@ router.get('/profile', withAuth, async (req, res) => {
       sumExpense: sumExpense
     });
   } catch (err) {
-    console.log(err)
     res.status(500).json(err)
   }
 });
@@ -119,7 +116,6 @@ router.get('/challenges', withAuth, async (req, res) => {
       starCounter
     });
   } catch (err) {
-    console.error(err);
     res.status(500).json({
       message: 'Error retrieving challenges'
     });

@@ -29,7 +29,6 @@ const submitFormHandler = async (event) => {
         headers: { "Content-Type": "application/json" },
       });
       if (response.ok) {
-        alert("Transaction added successfully");
         document.location.replace("/profile");
       } else {
         alert("Failed to post a transaction.");
