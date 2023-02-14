@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   
 
   res.render('homepage', {
-    loggedIn: req.session.loggedIn // homepage now renders as logged in
+    loggedIn: req.session.loggedIn, // homepage now renders as logged in
   });
 });
 
