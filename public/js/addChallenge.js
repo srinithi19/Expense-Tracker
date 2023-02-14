@@ -35,10 +35,8 @@ const submitFromHandler = async (event) => {
 
 
 const updateChallenge = async(event) => {
-console.log("in ");
 event.preventDefault();
 const id = event.target.getAttribute('data-id');
-console.log(id)
 const badge = true;
 try {
     const response = await fetch(`/api/challenge/update/${id}`, {

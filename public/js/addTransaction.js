@@ -5,8 +5,6 @@ var postTransaction  = document.getElementById("postTransaction")
 var newBudgetEl = document.getElementById("newBudgetForm"); 
 
 const replaceForm = () => {
-  console.log("---------IN replace")
-
     transHistoryEl.style.display = "none";
     newTransFormEl.style.display = "inline";
     newBudgetEl.style.display = "none";
@@ -15,7 +13,6 @@ const replaceForm = () => {
 
 const submitFormHandler = async (event) => {
   event.preventDefault();
-  console.log("---------IN CREATE________")
     const date = document.getElementById("transDate").value;
     const category = document.querySelector( 'input[name="category"]:checked').value;
     const subCategory = document.getElementById("transSubCat").value.trim();

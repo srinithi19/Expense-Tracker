@@ -25,7 +25,6 @@ router.post('/signUp', async (req, res) => {
 
 // Login
 router.post('/login', async (req, res) => {
-   console.log('=======LOGIN=======')
    try {
       const userData = await User.findOne({
          where: {
@@ -59,7 +58,6 @@ router.post('/login', async (req, res) => {
             .json({ user: userData, message: 'You are now logged in!' });
       });
    } catch (err) {
-      console.log(err);
       res.status(500).json(err);
    }
 });
