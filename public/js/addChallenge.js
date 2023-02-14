@@ -4,7 +4,6 @@ var updateChallengeBtn = document.getElementById("update-challenge-btn");
 
 
 const replaceForm = () => {
-    console.log("=======show form=======")
     newChallengeEl.style.display = "inline";
 };
 
@@ -19,7 +18,6 @@ const submitFromHandler = async (event) => {
         body: JSON.stringify({content}),
         headers: { "Content-Type": "application/json" }
     });
-    console.log(response)
     if(response.ok){
       document.location.replace("/challenges");
     } else {
