@@ -1,33 +1,115 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { User, Transaction, Budget, Challenge } = require('../models');
+const { User, Transaction, Budget, Challenge, Quest } = require('../models');
+
+async function renderAvatar(userId) {
+  const challengesData = await Challenge.findAll({
+    where: {
+      user_id: userId
+    }
+  });
+
+  let challenges = {};
+  if (challengesData) {
+    challenges = challengesData.map((challenge) => challenge.get({ plain: true }));
+    challenges = challenges.reverse()
+  }
+
+  let starCounter = 0;
+  for (const input of challenges) {
+    if (input.badge === true) starCounter += 1;
+  }
+
+  if (starCounter <= 4) {
+    const avatarData = await Quest.findOne({
+      where: {
+        id: 1
+      }
+    })
+    const avatar = avatarData.get({ plain: true })
+    return avatar;
+  }
+
+  if (starCounter <= 5 || starCounter >= 9) {
+    const avatarData = await Quest.findOne({
+      where: {
+        id: 2
+      }
+    })
+    const avatar = avatarData.get({ plain: true })
+    return avatar;
+  }
+
+  if (starCounter <= 10 || starCounter >= 14) {
+    const avatarData = await Quest.findOne({
+      where: {
+        id: 3
+      }
+    })
+    const avatar = avatarData.get({ plain: true })
+    return avatar;
+  }
+
+  if (starCounter >= 15) {
+    const avatarData = await Quest.findOne({
+      where: {
+        id: 4
+      }
+    })
+    const avatar = avatarData.get({ plain: true })
+    return avatar;
+  }
+}
 
 
-//Rrender application homepage
 router.get('/', async (req, res) => {
-  
+  let avatar;
+  if (req.session.user_id) {
+    avatar = await renderAvatar(req.session.user_id);
+  }
 
   res.render('homepage', {
-    loggedIn: req.session.loggedIn // homepage now renders as logged in
+    loggedIn: req.session.loggedIn,
+    avatar: avatar ? avatar.url : '/images/mini.png'
   });
+
 });
 
 //check to see if user is loggedin or else display login/signup form
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
+  let avatar;
+  if (req.session.user_id) {
+    avatar = await renderAvatar(req.session.user_id);
+  }
+
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }
-  res.render('login');
+  res.render('login', {
+    avatar: avatar ? avatar.url : '/images/mini.png'
+  });
 });
 
-router.get('/signup', (req, res) => {
-  res.render('signup');
+router.get('/signup', async (req, res) => {
+  let avatar;
+  if (req.session.user_id) {
+    avatar = await renderAvatar(req.session.user_id);
+  }
+
+  res.render('signup', {
+    avatar: avatar ? avatar.url : '/images/mini.png'
+  });
 });
 
 
 //HTML page to render users transactions
 router.get('/profile', withAuth, async (req, res) => {
+  let avatar;
+  if (req.session.user_id) {
+    avatar = await renderAvatar(req.session.user_id);
+  }
+  
   if (!req.session.loggedIn) {
     res.redirect('/');
     return;
@@ -68,6 +150,7 @@ router.get('/profile', withAuth, async (req, res) => {
         sumExpense += transaction.amount
       }
     })
+    
 
     res.render('profile', {
       loggedIn: req.session.loggedIn,
@@ -79,7 +162,8 @@ router.get('/profile', withAuth, async (req, res) => {
       amount: req.body.amount,
       budget: budget,
       sumIncome: sumIncome,
-      sumExpense: sumExpense
+      sumExpense: sumExpense,
+      avatar: avatar ? avatar.url : '/images/mini.png'
     });
   } catch (err) {
     res.status(500).json(err)
@@ -88,6 +172,10 @@ router.get('/profile', withAuth, async (req, res) => {
 
 // api to display the challenge page
 router.get('/challenges', withAuth, async (req, res) => {
+  let avatar;
+  if (req.session.user_id) {
+    avatar = await renderAvatar(req.session.user_id);
+  }
   if (!req.session.loggedIn) {
     res.redirect('/');
     return;
@@ -104,16 +192,16 @@ router.get('/challenges', withAuth, async (req, res) => {
       challenges = challengesData.map((challenge) => challenge.get({ plain: true }));
       challenges = challenges.reverse()
     }
-    
-  
-      let starCounter = 0;
-      for (const input of challenges) {
-        if (input.badge === true) starCounter += 1; 
-      }
+    let starCounter = 0;
+    for (const input of challenges) {
+      if (input.badge === true) starCounter += 1;
+    }
+
     res.render('challenge', {
       loggedIn: req.session.loggedIn,
       challenges,
-      starCounter
+      starCounter,
+      avatar: avatar ? avatar.url : '/images/mini.png'
     });
   } catch (err) {
     res.status(500).json({

@@ -14,30 +14,34 @@
 </head>
 
 <body>
-      <header>
-         <nav class="navbar is-flex-direction-row" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-               <a class="navbar-item" href="/"><img src="/images/mini.png" width="25" height="25"></a>
-               <a class="navbar-item has-text-link has-text-weight-bold" href="/">Home</a>
-                {{#if loggedIn}}
-               <a class="navbar-item has-text-link has-text-weight-bold" href="/profile">Profile</a>
-               <a class="navbar-item has-text-link has-text-weight-bold" href="/challenges">Challenges</a>
-               {{/if}}
-            </div>
+   <header>
+      <nav class="navbar is-flex-direction-row" role="navigation" aria-label="main navigation">
+         <div class="navbar-brand">
+            {{!-- {{#if loggedIn}} --}}
+            <a class="navbar-item" href="/"><img src={{avatar}} width="40" height="40"></a>
+            {{!-- {{else}}
+            <a class="navbar-item" href="/"><img src='/images/mini.png' width="40" height="40"></a>
+            {{/if}} --}}
+            <a class="navbar-item has-text-link has-text-weight-bold" href="/">Home</a>
+            {{#if loggedIn}}
+            <a class="navbar-item has-text-link has-text-weight-bold" href="/profile">Profile</a>
+            <a class="navbar-item has-text-link has-text-weight-bold" href="/challenges">Challenges</a>
+            {{/if}}
+         </div>
 
-               <div class="navbar-end">
-                  {{#if loggedIn}}
-                  <div class="navbar-item"><a class="navBtn button has-text-weight-bold" id="logout">Logout</a></div>
-                  
-                  {{else}}
-                  <div class="navbar-item">
-                        <a class="navBtn button is-primary has-text-weight-bold" href="/login">Login</a>
-                        <a class="navBtn button is-light has-text-weight-bold" href="/signUp">Sign Up</a>
-                  </div>
-                  {{/if}}
-               </div>
-         </nav>
-      </header>
+         <div class="navbar-end">
+            {{#if loggedIn}}
+            <div class="navbar-item"><a class="navBtn button has-text-weight-bold" id="logout">Logout</a></div>
+
+            {{else}}
+            <div class="navbar-item">
+               <a class="navBtn button is-primary has-text-weight-bold" href="/login">Login</a>
+               <a class="navBtn button is-light has-text-weight-bold" href="/signUp">Sign Up</a>
+            </div>
+            {{/if}}
+         </div>
+      </nav>
+   </header>
    <main>
       {{{ body }}}
    </main>
