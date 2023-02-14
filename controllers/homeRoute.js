@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { User, Transaction, Budget, Challenge } = require('../models');
+const { User, Transaction, Budget, Challenge, Quest } = require('../models');
 
 
 //Rrender application homepage
 router.get('/', async (req, res) => {
-  
+
 
   res.render('homepage', {
     loggedIn: req.session.loggedIn, // homepage now renders as logged in
@@ -104,16 +104,25 @@ router.get('/challenges', withAuth, async (req, res) => {
       challenges = challengesData.map((challenge) => challenge.get({ plain: true }));
       challenges = challenges.reverse()
     }
+    let starCounter = 0;
+    for (const input of challenges) {
+      if (input.badge === true) starCounter += 1;
+    }
     
-  
-      let starCounter = 0;
-      for (const input of challenges) {
-        if (input.badge === true) starCounter += 1; 
+    // gets quest to render for challenges page
+    let questData = await Quest.findAll({ 
+      where: {
+        user_id: req.session.user_id
       }
+    })
+
+    const quest = questData.map((quest) => quest.get({ plain: true }))
+
     res.render('challenge', {
       loggedIn: req.session.loggedIn,
       challenges,
-      starCounter
+      starCounter,
+      quest
     });
   } catch (err) {
     res.status(500).json({
