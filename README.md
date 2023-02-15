@@ -121,6 +121,8 @@ Modal Association:
 
 6. Budget belongsTo User
 
+![Site Gif](./assets/readmegif.gif)
+
 
 ## API Endpoints
  
@@ -160,6 +162,8 @@ To build out this project, we used the CSS framework Bulma. Bulma is a free and 
 We used a range of pre-designed UI elements, such as forms, buttons, heros, and modals, that were easily customized to fit the needs of our project. We primarily relied on the classes associated with layouts, `columns` Thanks to the built in responsiveness, we only needed a few media queries to obtain our desired styling.
 
 Walk through of deployed URL - https://drive.google.com/file/d/1BWXeFkqLSCiSt_EIQewhxqxUtjotpvlR/view
+
+* Don't want to make an account feel free to use demo@demo.com : demopassword
 
 
 ## Learning Points 
