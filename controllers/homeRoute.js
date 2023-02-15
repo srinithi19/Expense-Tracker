@@ -20,44 +20,81 @@ async function renderAvatar(userId) {
     if (input.badge === true) starCounter += 1;
   }
 
+  // if (starCounter <= 4) {
+  //   const avatar = null;
+  //   return avatar;
+  // }
+  // if (starCounter >= 5) {
+  //   const avatarData = await Quest.findOne({
+  //     where: {
+  //       id: 1
+  //     }
+  //   })
+  //   const avatar = avatarData.get({ plain: true })
+  //   return avatar;
+  // }
+  // if (starCounter >= 10) {
+  //   const avatarData = await Quest.findOne({
+  //     where: {
+  //       id: 2
+  //     }
+  //   })
+  //   const avatar = avatarData.get({ plain: true })
+  //   return avatar;
+  // }
+
+  // if (starCounter >= 15) {
+  //   const avatarData = await Quest.findOne({
+  //     where: {
+  //       id: 3
+  //     }
+  //   })
+  //   const avatar = avatarData.get({ plain: true })
+  //   return avatar;
+  // }
+
+  // if (starCounter >= 25) {
+  //   const avatarData = await Quest.findOne({
+  //     where: {
+  //       id: 4
+  //     }
+  //   })
+  //   const avatar = avatarData.get({ plain: true })
+  //   return avatar;
+  // }
+  // if (starCounter >= 30) {
+  //   const avatarData = await Quest.findOne({
+  //     where: {
+  //       id: 5
+  //     }
+  //   })
+  //   const avatar = avatarData.get({ plain: true })
+  //   return avatar;
+  // }
   if (starCounter <= 4) {
-    const avatarData = await Quest.findOne({
-      where: {
-        id: 0
-      }
-    })
-    const avatar = avatarData.get({ plain: true })
+    const avatar = null;
     return avatar;
   }
-
-  if (starCounter <= 5 || starCounter >= 9) {
-    const avatarData = await Quest.findOne({
+  
+  const questData = [
+    { id: 1, min: 5, max: 9 },
+    { id: 2, min: 10, max: 14 },
+    { id: 3, min: 15, max: 24 },
+    { id: 4, min: 25, max: 29 },
+    { id: 5, min: 30 }
+  ];
+  
+  const avatarData = questData.find(({ min, max }) => {
+    return (starCounter >= min) && (!max || starCounter <= max);
+  });
+  
+  if (avatarData) {
+    const avatar = await Quest.findOne({
       where: {
-        id: 1
+        id: avatarData.id
       }
-    })
-    const avatar = avatarData.get({ plain: true })
-    return avatar;
-  }
-
-  if (starCounter <= 10 || starCounter >= 14) {
-    const avatarData = await Quest.findOne({
-      where: {
-        id: 2
-      }
-    })
-    const avatar = avatarData.get({ plain: true })
-    return avatar;
-  }
-
-  if (starCounter >= 15) {
-    const avatarData = await Quest.findOne({
-      where: {
-        id: 3
-      }
-    })
-    const avatar = avatarData.get({ plain: true })
-    return avatar;
+    });
+    return avatar.get({ plain: true });
   }
 }
 
@@ -140,6 +177,7 @@ router.get('/profile', withAuth, async (req, res) => {
     } else {
       budget = budgetData.get({ plain: true })
     }
+
 
     var sumIncome = 0;
     var sumExpense = 0;
