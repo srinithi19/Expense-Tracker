@@ -61,15 +61,10 @@ p {
    padding: 20px;
 }
 
-#chall-inst-header{
+#chall-inst-header, #quest-header{
    font-size: 26px;
 }
 
-
-.navatar {
-   min-height: 150px;
-   min-width: 150px;
-}
 
 
 @media screen and (max-width: 1024px) {

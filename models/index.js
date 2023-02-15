@@ -3,7 +3,6 @@ const Transaction = require('./Transaction')
 const Budget = require('./Budget')
 const Challenge = require('./Challenge')
 const Quest = require('./Quest')
-const QuestUser = require('./QuestUser')
 
 
 // User has many transaction 
@@ -31,13 +30,9 @@ Transaction.belongsTo(User, {
   onDelete: "CASCADE"
 })
 
-Quest.belongsTo(User, {
-  through: QuestUser
-})
+Quest.belongsTo(User)
 
-User.belongsToMany(Quest, {
-  through: QuestUser
-})
+User.belongsTo(Quest)
 
 // Challenge belongs to user
 Challenge.belongsTo(User, {
@@ -51,4 +46,4 @@ Budget.belongsTo(User, {
   onDelete: "CASCADE"
 })
 
-module.exports = {User, Budget, Transaction, Challenge, Quest, QuestUser};
+module.exports = {User, Budget, Transaction, Challenge, Quest};

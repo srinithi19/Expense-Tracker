@@ -15,11 +15,14 @@
 
 <body>
    <header>
-      <nav class="navbar is-flex-direction-row" role="navigation" aria-label="main navigation">
-         <div class="navbar-brand">
-            <a class="navbar-item" href="/"><img src={{avatar}} id="navatar"></a>
-            {{!-- <a class="navbar-item" href="/"><img src='/images/mini.png' width="40" height="40"></a>
-            {{/if}} --}}
+      <nav class="navbar is-flex-direction-row box p-5" role="navigation" aria-label="main navigation">
+         <div class="navbar-brand p-4" id="one">
+            {{#if loggedIn}}
+            <a href="/"><img src={{avatar}} id="avatar" class="image is-96x96">
+            </a>
+            {{else}}
+            <a class="navbar-item" href="/"><img src='/images/mini.png' width="40" height="40"></a>
+            {{/if}}
             <a class="navbar-item has-text-link has-text-weight-bold" href="/">Home</a>
             {{#if loggedIn}}
             <a class="navbar-item has-text-link has-text-weight-bold" href="/profile">Profile</a>
