@@ -17,10 +17,8 @@
    <header>
       <nav class="navbar is-flex-direction-row" role="navigation" aria-label="main navigation">
          <div class="navbar-brand">
-            {{!-- {{#if loggedIn}} --}}
-            <a class="navbar-item" href="/"><img src={{avatar}} width="40" height="40"></a>
-            {{!-- {{else}}
-            <a class="navbar-item" href="/"><img src='/images/mini.png' width="40" height="40"></a>
+            <a class="navbar-item" href="/"><img src={{avatar}} id="navatar"></a>
+            {{!-- <a class="navbar-item" href="/"><img src='/images/mini.png' width="40" height="40"></a>
             {{/if}} --}}
             <a class="navbar-item has-text-link has-text-weight-bold" href="/">Home</a>
             {{#if loggedIn}}
