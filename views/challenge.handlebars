@@ -1,30 +1,31 @@
 <div class="ml-5">
-  <h3 class="title is-size-3 has-text-centered has-text-danger">Welcome to your Challenge Dashboard <i class='fa fa-star' style='color: #f3da35' >{{starCounter}}</i></h3>
+  <h3 class="title is-size-3 has-text-centered has-text-danger">Welcome to your Challenge Dashboard <i
+      class='fa fa-star' style='color: #f3da35'>{{starCounter}}</i></h3>
 
 
- <div>
-  <button class="button is-link ml-5" id="add-challenge-btn">Add Challenge</button>
+  <div>
+    <button class="button is-link ml-5" id="add-challenge-btn">Add Challenge</button>
   </div>
- <div class="container" style="display:none;" id="newChallengeForm">
-  <div class="columns is-justify-content-center">
-    <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
-      <br>
-      <h2 class="has-text-centered has-text-link is-size-5 has-text-weight-bold">Set a new Challenge</h2>
-      <form class="box">
-        <div class="field">
-          <label for="" class="label">Content:</label>
-          <div class="control has-icons-left">
-            <input type="text" class="input" id="challengeText">
+  <div class="container" style="display:none;" id="newChallengeForm">
+    <div class="columns is-justify-content-center">
+      <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
+        <br>
+        <h2 class="has-text-centered has-text-link is-size-5 has-text-weight-bold">Set a new Challenge</h2>
+        <form class="box">
+          <div class="field">
+            <label for="" class="label">Content:</label>
+            <div class="control has-icons-left">
+              <input type="text" class="input" id="challengeText">
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <button class="button is-link" id="addChallengeBtn">Add Challenge</button>
-          <div id="message-container"></div>
-        </div>
-      </form>
+          <div class="field">
+            <button class="button is-link" id="addChallengeBtn">Add Challenge</button>
+            <div id="message-container"></div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
- </div>
 
 
   <ul class="challenge-card-container">
@@ -41,8 +42,8 @@
     </li>
     {{/each}}
     {{else}}
-    <div class='has-text-centered'> 
-      <img src="/images/loading.gif" alt="loading icon" style="width:150px;height:150px;"/>
+    <div class='has-text-centered'>
+      <img src="/images/loading.gif" alt="loading icon" style="width:150px;height:150px;" />
       <p id="challenge-header">You currently have no challenges.</p>
     </div>
     {{/if}}
@@ -53,7 +54,8 @@
     <h4 class='has-text-centered' id="chall-inst-header">Drive yourself closer to financial success by adding challenges
       and gain stars! </h4>
     <br>
-    <p id="chall-inst-text">Set challenges yourself to personalize your financial journey. No challenge is too big or too small. Start small
+    <p id="chall-inst-text">Set challenges yourself to personalize your financial journey. No challenge is too big or
+      too small. Start small
       and work your way up. These are personalized goals for you to work on your financial habits. Everyone is going to
       have different goals but here are some examples:</p>
     <br>
@@ -65,12 +67,32 @@
   </article>
 
   <article class="ml-5" id="quest-container">
-
-  <h4 class='has-text-centered' id="quest-header">Earn enough stars and complete quests!</h4>
-  <br>
-  
-
-
-</article>
+    <h3 class="has-text-centered" id="quest-header">Earn enough stars and complete quests!</h3>
+    <br>
+    <div class="columns is-multiline is-mobile">
+      <div class="avatar-card column is-one-third-desktop is-half-tablet is-full-mobile">
+        <h4 class="has-text-centered">Complete 5 Personal Challenges and upgrade to:</h4>
+        <img src="https://img.freepik.com/free-vector/cute-astronaut-sitting-gold-coin-cartoon-vector-icon-illustration-science-business-icon-isolated_138676-4472.jpg?w=740&t=st=1676408138~exp=1676408738~hmac=f67ae3189aeee9f4d47d09abb1f850b2ee4dc1993788c02f41306a8e56a80e1a" alt="Avatar 1">
+      </div>
+      <div class="avatar-card column is-one-third-desktop is-half-tablet is-full-mobile">
+        <h4 class="has-text-centered">Complete 10 Personal Challenges and upgrade to:</h4>
+        <img src="https://img.freepik.com/free-vector/cute-astronaut-lifting-money-bag-cartoon-vector-icon-illustration-science-finance-icon-isolated_138676-4495.jpg?w=740&t=st=1676408131~exp=1676408731~hmac=cb9bba6fd41526636e18a89908638fec255ea17730ec0862bdfa15ce0ed77959" alt="Avatar 2">
+      </div>
+      <div class="avatar-card column is-one-third-desktop is-half-tablet is-full-mobile">
+        <h4 class="has-text-centered">Complete 15 Personal Challenges and upgrade to:</h4>
+        <img src="https://img.freepik.com/free-vector/cute-astronaut-holding-money-cartoon-vector-icon-illustration-science-business-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4271.jpg?w=740&t=st=1676408394~exp=1676408994~hmac=de187a224f203f2406f775cf16dbe346d4772405d86b2c1980e51557e2ed0a2d" alt="Avatar 3">
+      </div>
+    </div>
+    <div class="columns is-multiline is-mobile">
+      <div class="avatar-card column is-one-half-desktop is-half-tablet is-full-mobile">
+        <h4 class="has-text-centered">Complete 15+ Personal Challenges and upgrade to:</h4>
+        <img src="https://img.freepik.com/free-vector/cute-astronaut-with-money-safe-deposit-box-cartoon-vector-icon-illustration-science-finance-icon_138676-5996.jpg?w=740&t=st=1676418908~exp=1676419508~hmac=534b265c8a985b3032ba110e755a7796cc684a8a371552487b57c7d0406e3ec4" alt="Avatar 4">
+      </div>
+      <div class="avatar-card column is-one-half-desktop is-half-tablet is-full-mobile">
+        <h4 class="has-text-centered">Complete 50 Personal Challenges and upgrade to:</h4>
+        <img src="https://img.freepik.com/free-vector/cute-rich-astronaut-with-money-gold-coin-cartoon-vector-icon-illustration-science-finance-icon_138676-6578.jpg?w=740&t=st=1676408127~exp=1676408727~hmac=82d58a989f489cbb359923ab32e454e59d84ced0f3e88deb363b0bb0e3446713" alt="Avatar 5">
+      </div>
+    </div>
+  </article>
 </div>
-  <script src="./js/addChallenge.js"></script>
+<script src="./js/addChallenge.js"></script>

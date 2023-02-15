@@ -23,7 +23,7 @@ async function renderAvatar(userId) {
   if (starCounter <= 4) {
     const avatarData = await Quest.findOne({
       where: {
-        id: 1
+        id: 0
       }
     })
     const avatar = avatarData.get({ plain: true })
@@ -33,7 +33,7 @@ async function renderAvatar(userId) {
   if (starCounter <= 5 || starCounter >= 9) {
     const avatarData = await Quest.findOne({
       where: {
-        id: 2
+        id: 1
       }
     })
     const avatar = avatarData.get({ plain: true })
@@ -43,7 +43,7 @@ async function renderAvatar(userId) {
   if (starCounter <= 10 || starCounter >= 14) {
     const avatarData = await Quest.findOne({
       where: {
-        id: 3
+        id: 2
       }
     })
     const avatar = avatarData.get({ plain: true })
@@ -53,7 +53,7 @@ async function renderAvatar(userId) {
   if (starCounter >= 15) {
     const avatarData = await Quest.findOne({
       where: {
-        id: 4
+        id: 3
       }
     })
     const avatar = avatarData.get({ plain: true })
