@@ -61,9 +61,10 @@ p {
    padding: 20px;
 }
 
-#chall-inst-header{
+#chall-inst-header, #quest-header{
    font-size: 26px;
 }
+
 
 
 @media screen and (max-width: 1024px) {
